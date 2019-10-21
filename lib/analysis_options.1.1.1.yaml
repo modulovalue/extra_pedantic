@@ -1,0 +1,122 @@
+analyzer:
+  strong-mode:
+    implicit-casts: false
+    implicit-dynamic: false
+
+# All rules: https://github.com/dart-lang/linter/blob/master/example/all.yaml
+linter:
+  rules:
+    # ---------------------- pedantic 1.8.0 --------------------------
+    - avoid_empty_else # pedantic
+    - avoid_init_to_null # pedantic
+    - avoid_relative_lib_imports # pedantic
+    - avoid_return_types_on_setters # pedantic
+    - avoid_shadowing_type_parameters # pedantic
+    - avoid_types_as_parameter_names # pedantic
+    - curly_braces_in_flow_control_structures # pedantic
+    - empty_catches # pedantic
+    - empty_constructor_bodies # pedantic
+    - library_names # pedantic
+    - library_prefixes # pedantic
+    - no_duplicate_case_values # pedantic
+    - null_closures # pedantic
+    - prefer_contains # pedantic
+    - prefer_equal_for_default_values # pedantic
+    - prefer_is_empty # pedantic
+    - prefer_is_not_empty # pedantic
+    - prefer_iterable_whereType # pedantic
+    - recursive_getters # pedantic
+    - slash_for_doc_comments # pedantic
+    - type_init_formals # pedantic
+    - unawaited_futures # pedantic
+    - unnecessary_const # pedantic
+    - unnecessary_new # pedantic
+    - unnecessary_null_in_if_null_operators # pedantic
+    - unrelated_type_equality_checks # pedantic
+    - use_rethrow_when_possible # pedantic
+    - valid_regexps # pedantic
+    # Specifically not enforced by pedantic
+    # - always_put_control_body_on_new_line
+    # - always_specify_types
+    # - avoid_as
+    - control_flow_in_finally
+    - empty_statements
+    # - prefer_bool_in_asserts
+    - prefer_final_locals
+    - throw_in_finally
+    # ----------------------------------------------------------------
+    # Additional rules, the 'extra' in extra_pedantic
+    - annotate_overrides
+    - await_only_futures
+    - cancel_subscriptions
+    - close_sinks
+    - hash_and_equals
+    - implementation_imports
+    - package_api_docs
+    - package_names
+    - package_prefixed_library_names
+    - test_types_in_equals
+    - unnecessary_getters_setters
+    - always_declare_return_types
+    - void_checks
+    - type_annotate_public_apis
+    - avoid_slow_async_io
+    - invariant_booleans
+    - iterable_contains_unrelated_type
+    - list_remove_unrelated_type
+    - literal_only_boolean_expressions
+    - no_adjacent_strings_in_list
+    - prefer_void_to_null
+    - always_require_non_null_named_parameters
+    - directives_ordering
+    - only_throw_errors
+    - prefer_adjacent_string_concatenation
+    - prefer_asserts_in_initializer_lists
+    - prefer_conditional_assignment
+    - prefer_const_constructors
+    - prefer_const_constructors_in_immutables
+    - prefer_typing_uninitialized_variables
+    - unnecessary_null_aware_assignments
+    - unnecessary_overrides
+    - use_function_type_syntax_for_parameters
+    - use_string_buffers
+    - use_to_and_as_if_applicable
+    - use_full_hex_values_for_flutter_colors
+    - prefer_spread_collections
+    - prefer_inlined_adds
+    - prefer_for_elements_to_map_fromIterable
+    - prefer_if_elements_to_conditional_expressions
+    - unnecessary_parenthesis
+    - prefer_collection_literals
+    - prefer_const_declarations
+    - prefer_null_aware_operators
+    - always_put_required_named_parameters_first
+    - avoid_catching_errors
+    - avoid_double_and_int_checks
+    - avoid_implementing_value_types
+    - avoid_js_rounded_ints
+    - avoid_null_checks_in_equality_operators
+    - avoid_private_typedef_functions
+    - prefer_final_fields
+    - avoid_returning_null
+    - avoid_returning_null_for_future
+    - avoid_returning_null_for_void
+    - avoid_returning_this
+    - avoid_single_cascade_in_expression_statements
+    - avoid_unused_constructor_parameters
+    - avoid_void_async
+    - join_return_with_assignment
+    - parameter_assignments
+    - prefer_final_in_for_each
+    - prefer_foreach
+    - prefer_generic_function_type_aliases
+    - prefer_if_null_operators
+    - prefer_initializing_formals
+    - provide_deprecation_message
+    # flutter style
+    # - sort_child_properties_last
+    - sort_pub_dependencies
+    - sort_unnamed_constructors_first
+    - unnecessary_await_in_return
+    - unsafe_html
+    - file_names
