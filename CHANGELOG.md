@@ -1,3 +1,7 @@
+## 1.1.1+1 (2019-10-22)
+
+- Longer description
+
 ## 1.1.1 (2019-10-19)
 
 - Removed diagnostic_describe_all_properties
