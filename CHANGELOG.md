@@ -1,3 +1,7 @@
+## 1.1.1+2 (2019-10-25)
+
+- Badges added
+
 ## 1.1.1+1 (2019-10-22)
 
 - Longer description
