@@ -2,6 +2,9 @@ analyzer:
   strong-mode:
     implicit-casts: false
     implicit-dynamic: false
+  language:
+    strict-inference: true
+    strict-raw-types: true
 
 # All rules: https://github.com/dart-lang/linter/blob/master/example/all.yaml
 linter:

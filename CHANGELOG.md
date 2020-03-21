@@ -1,3 +1,12 @@
+## 1.2.0 (2020-03-21)
+
+- enabled strict inference
+- enabled strict raw types
+
+## 1.1.1+3 (2019-11-3)
+
+- Readme updated
+
 ## 1.1.1+2 (2019-10-25)
 
 - Badges added

@@ -1,1 +1,0 @@
-/Applications/GitKraken.app/Contents/MacOS/GitKraken --path="`dirname "$0"`"
