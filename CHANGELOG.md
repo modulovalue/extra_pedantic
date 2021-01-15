@@ -1,3 +1,8 @@
+## 1.2.0 (2021-01-15)
+
+- Bump up package version
+- Bump up environment SDK constraints
+
 ## 1.2.0 (2020-03-21)
 
 - enabled strict inference

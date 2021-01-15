@@ -1,10 +1,10 @@
 name: extra_pedantic
 description: How to get the most, most value from Dart static analysis. A drop-in replacement for pedantic.
-version: 1.2.0
+version: 1.2.1+-nullsafety.0
 author: Modestas Valauskas <valauskasmodestas+dartpub@gmail.com>
 homepage: https://github.com/modulovalue/extra_pedantic
 repository: https://github.com/modulovalue/extra_pedantic
 issue_tracker: https://github.com/modulovalue/extra_pedantic/issues
 
 environment:
-  sdk: '>2.2.2 <3.0.0'
+  sdk: '>=2.12.0-0.beta <3.0.0'
