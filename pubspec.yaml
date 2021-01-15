@@ -1,5 +1,5 @@
 name: extra_pedantic
-description: How to get the most, most value from Dart static analysis. A drop-in replacement for pedantic.
+description: Stricter Dart analyzer settings and best practices.
 version: 1.2.1+-nullsafety.0
 author: Modestas Valauskas <valauskasmodestas+dartpub@gmail.com>
 homepage: https://github.com/modulovalue/extra_pedantic
