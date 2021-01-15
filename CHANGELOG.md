@@ -1,4 +1,4 @@
-## 1.2.0 (2021-01-15)
+## 1.2.1-nullsafety.0 (2021-01-15)
 
 - Bump up package version.
 - Bump up environment SDK constraints.
