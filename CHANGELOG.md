@@ -1,3 +1,9 @@
+## 1.3.0 (2021-02-14)
+
+- Removed use_to_and_as_if_applicable and prefer_void_to_null
+- Added more rules.
+- Removed flutter analysis_options.
+
 ## 1.2.1-nullsafety.0 (2021-01-15)
 
 - Bump up package version.

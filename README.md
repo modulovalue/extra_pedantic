@@ -12,7 +12,7 @@ To use extra_pedantic add it as a dev_dependency:
 
 ```yaml
 dev_dependencies:
-  extra_pedantic: 1.2.0
+  extra_pedantic: 1.3.0
 ```
 
 Add this line to your `analysis_options.yaml` file
