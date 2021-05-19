@@ -12,7 +12,7 @@ To use extra_pedantic add it as a dev_dependency:
 
 ```yaml
 dev_dependencies:
-  extra_pedantic: 1.3.0
+  extra_pedantic: ^1.4.0
 ```
 
 Add this line to your `analysis_options.yaml` file
@@ -21,16 +21,9 @@ Add this line to your `analysis_options.yaml` file
 include: package:extra_pedantic/analysis_options.yaml
 ```
 
-or if you want to enforce `sort_child_properties_last` and disable `always_put_required_named_parameters_first` (for Flutter projects)
+And that's it.
 
-```yaml
-include: package:extra_pedantic/analysis_options_flutter.yaml
-```
-
-And you're done. 
-
-The static analyzer might show you thousands of warnings, but that's OK. 
-Fix them on your terms and you'll drastically improve your code quality, reduce ambiguity and the number of bugs in your codebase.
+The static analyzer might show you thousands of warnings, that's OK.
 
 ## Badge
 
@@ -39,6 +32,3 @@ Feel free to add this badge to your README.
 ```md
 [![extra_pedantic on pub.dev](https://img.shields.io/badge/style-extra__pedantic-blue)](https://pub.dev/packages/extra_pedantic)
 ```
-
-## Note: 
-extra_pedantic does not contain any dart code. If you want to use `unawaited`, you'll have to add `pedantic` as a normal dependency.
