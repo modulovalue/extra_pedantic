@@ -8,7 +8,7 @@ class AnalysisOptionsRules {
 
   AnalysisOptionsRules();
 
-  late final Iterable<CommentedLint> enabled = [
+  final enabled = const [
     CommentedLintImpl("always_declare_return_types", noComment),
     CommentedLintImpl("annotate_overrides", noComment),
     CommentedLintImpl("avoid_null_checks_in_equality_operators", noComment),
@@ -127,8 +127,6 @@ class AnalysisOptionsRules {
     CommentedLintImpl("tighten_type_of_initializing_formals", noComment),
     CommentedLintImpl("avoid_dynamic_calls", noComment),
     CommentedLintImpl("avoid_catches_without_on_clauses", noComment),
-    CommentedLintImpl("avoid_field_initializers_in_const_classes",
-        "Getter type inference isn't as powerful as the type inference of fields. This ads some overhead. I'm keeping it enabled for now."),
     CommentedLintImpl("avoid_type_to_string", noComment),
     CommentedLintImpl("avoid_web_libraries_in_flutter", noComment),
     CommentedLintImpl("no_default_cases", noComment),
@@ -145,62 +143,29 @@ class AnalysisOptionsRules {
     CommentedLintImpl("unnecessary_statements", noComment),
     CommentedLintImpl("use_build_context_synchronously", noComment),
     CommentedLintImpl("use_is_even_rather_than_modulo", noComment),
+    CommentedLintImpl("comment_references", noComment),
   ];
-  late final Iterable<CommentedLint> disabled = [
+  final Iterable<CommentedLint> disabled = const [
     CommentedLintImpl(
       "always_require_non_null_named_parameters",
       obsoleteNNBD,
     ),
-    CommentedLintImpl(
-      "prefer_void_to_null",
-      obsoleteNNBD,
-    ),
+    CommentedLintImpl("prefer_void_to_null", obsoleteNNBD),
     CommentedLintImpl(
       "camel_case_extensions",
       "Disabled because an underscore is useful to "
           "represent domain separation in generated code.",
     ),
-    CommentedLintImpl(
-      "omit_local_variable_types",
-      tooPedantic,
-    ),
-    CommentedLintImpl(
-      "prefer_adjacent_string_concatenation",
-      "Being explicit with string concatenation " + "is better.",
-    ),
-    CommentedLintImpl(
-      "prefer_single_quotes",
-      tooPedantic,
-    ),
-    CommentedLintImpl(
-      "always_put_control_body_on_new_line",
-      tooPedantic,
-    ),
-    CommentedLintImpl(
-      "always_specify_types",
-      tooPedantic,
-    ),
-    CommentedLintImpl(
-      "avoid_as",
-      tooPedantic,
-    ),
-    CommentedLintImpl(
-      "unnecessary_this",
-      "There are cases related to type inference "
-          "where this lint is counterproductive.",
-    ),
-    CommentedLintImpl(
-      "prefer_bool_in_asserts",
-      noComment,
-    ),
-    CommentedLintImpl(
-      "use_to_and_as_if_applicable",
-      tooPedantic,
-    ),
-    CommentedLintImpl(
-      "sort_child_properties_last",
-      tooPedantic,
-    ),
+    CommentedLintImpl("omit_local_variable_types", tooPedantic),
+    CommentedLintImpl("prefer_adjacent_string_concatenation", noComment),
+    CommentedLintImpl("prefer_single_quotes", tooPedantic),
+    CommentedLintImpl("always_put_control_body_on_new_line", tooPedantic),
+    CommentedLintImpl("always_specify_types", tooPedantic),
+    CommentedLintImpl("avoid_as", tooPedantic),
+    CommentedLintImpl("unnecessary_this", "Too many false positives."),
+    CommentedLintImpl("prefer_bool_in_asserts", noComment),
+    CommentedLintImpl("use_to_and_as_if_applicable", tooPedantic),
+    CommentedLintImpl("sort_child_properties_last", tooPedantic),
     CommentedLintImpl(
       "prefer_function_declarations_over_variables",
       "With variables, the return type can be omitted safely "
@@ -222,37 +187,22 @@ class AnalysisOptionsRules {
     ),
     CommentedLintImpl(
       "avoid_classes_with_only_static_members",
-      "Classis with static members don't pollute the global namespace less.",
+      "Classes with static members don't pollute the global namespace.",
     ),
-    CommentedLintImpl(
-      "avoid_escaping_inner_quotes",
-      tooPedantic,
-    ),
+    CommentedLintImpl("avoid_escaping_inner_quotes", tooPedantic),
     CommentedLintImpl(
       "avoid_function_literals_in_foreach_calls",
       "Great lint, but if you worry about the memory overhead "
           "of closures you should probably switch to Rust.",
     ),
-    CommentedLintImpl(
-      "avoid_multiple_declarations_per_line",
-      tooPedantic,
-    ),
+    CommentedLintImpl("avoid_multiple_declarations_per_line", tooPedantic),
     CommentedLintImpl(
       "avoid_equals_and_hash_code_on_mutable_classes",
       "@immutable needs a dependency on meta.",
     ),
-    CommentedLintImpl(
-      "avoid_positional_boolean_parameters",
-      tooPedantic,
-    ),
-    CommentedLintImpl(
-      "avoid_print",
-      tooPedantic,
-    ),
-    CommentedLintImpl(
-      "avoid_redundant_argument_values",
-      tooPedantic,
-    ),
+    CommentedLintImpl("avoid_positional_boolean_parameters", tooPedantic),
+    CommentedLintImpl("avoid_print", tooPedantic),
+    CommentedLintImpl("avoid_redundant_argument_values", tooPedantic),
     CommentedLintImpl(
       "avoid_renaming_method_parameters",
       tooPedanticMayReconsider,
@@ -261,10 +211,7 @@ class AnalysisOptionsRules {
       "avoid_setters_without_getters",
       tooPedanticMayReconsider,
     ),
-    CommentedLintImpl(
-      "avoid_types_on_closure_parameters",
-      tooPedantic,
-    ),
+    CommentedLintImpl("avoid_types_on_closure_parameters", tooPedantic),
     CommentedLintImpl(
       "avoid_unnecessary_containers",
       "Containers make it easy to iterate on designs.",
@@ -273,102 +220,35 @@ class AnalysisOptionsRules {
       "camel_case_types",
       "Underscores can be useful in generated code.",
     ),
-    CommentedLintImpl(
-      "cascade_invocations",
-      tooPedantic,
-    ),
-    CommentedLintImpl(
-      "comment_references",
-      tooPedanticMayReconsider,
-    ),
-    CommentedLintImpl(
-      "constant_identifier_names",
-      tooPedantic,
-    ),
-    CommentedLintImpl(
-      "deprecated_consistency",
-      tooPedantic,
-    ),
-    CommentedLintImpl(
-      "diagnostic_describe_all_properties",
-      tooPedantic,
-    ),
-    CommentedLintImpl(
-      "flutter_style_todos",
-      tooPedantic,
-    ),
-    CommentedLintImpl(
-      "do_not_use_environment",
-      tooPedanticMayReconsider,
-    ),
-    CommentedLintImpl(
-      "leading_newlines_in_multiline_strings",
-      tooPedantic,
-    ),
-    CommentedLintImpl(
-      "library_private_types_in_public_api",
-      tooPedantic,
-    ),
-    CommentedLintImpl(
-      "lines_longer_than_80_chars",
-      tooPedantic,
-    ),
+    CommentedLintImpl("cascade_invocations", tooPedantic),
+    CommentedLintImpl("constant_identifier_names", tooPedantic),
+    CommentedLintImpl("deprecated_consistency", tooPedantic),
+    CommentedLintImpl("diagnostic_describe_all_properties", tooPedantic),
+    CommentedLintImpl("flutter_style_todos", tooPedantic),
+    CommentedLintImpl("do_not_use_environment", tooPedanticMayReconsider),
+    CommentedLintImpl("leading_newlines_in_multiline_strings", tooPedantic),
+    CommentedLintImpl("library_private_types_in_public_api", tooPedantic),
+    CommentedLintImpl("lines_longer_than_80_chars", tooPedantic),
     CommentedLintImpl(
       "missing_whitespace_between_adjacent_strings",
       tooPedantic,
     ),
-    CommentedLintImpl(
-      "non_constant_identifier_names",
-      tooPedantic,
-    ),
-    CommentedLintImpl(
-      "no_runtimeType_toString",
-      tooPedanticMayReconsider,
-    ),
-    CommentedLintImpl(
-      "one_member_abstracts",
-      tooPedantic,
-    ),
+    CommentedLintImpl("non_constant_identifier_names", tooPedantic),
+    CommentedLintImpl("no_runtimeType_toString", tooPedanticMayReconsider),
+    CommentedLintImpl("one_member_abstracts", tooPedantic),
     CommentedLintImpl(
       "prefer_const_literals_to_create_immutables",
       tooPedantic,
     ),
-    CommentedLintImpl(
-      "prefer_constructors_over_static_methods",
-      tooPedantic,
-    ),
-    CommentedLintImpl(
-      "prefer_double_quotes",
-      tooPedantic,
-    ),
-    CommentedLintImpl(
-      "prefer_expression_function_bodies",
-      tooPedantic,
-    ),
-    CommentedLintImpl(
-      "prefer_interpolation_to_compose_strings",
-      tooPedantic,
-    ),
-    CommentedLintImpl(
-      "prefer_int_literals",
-      tooPedantic,
-    ),
-    CommentedLintImpl(
-      "prefer_is_not_operator",
-      tooPedantic,
-    ),
-    CommentedLintImpl(
-      "public_member_api_docs",
-      tooPedantic,
-    ),
-    CommentedLintImpl(
-      "sort_constructors_first",
-      tooPedantic,
-    ),
-    CommentedLintImpl(
-      "super_goes_last",
-      "Deprecated",
-    ),
+    CommentedLintImpl("prefer_constructors_over_static_methods", tooPedantic),
+    CommentedLintImpl("prefer_double_quotes", tooPedantic),
+    CommentedLintImpl("prefer_expression_function_bodies", tooPedantic),
+    CommentedLintImpl("prefer_interpolation_to_compose_strings", tooPedantic),
+    CommentedLintImpl("prefer_int_literals", tooPedantic),
+    CommentedLintImpl("prefer_is_not_operator", tooPedantic),
+    CommentedLintImpl("public_member_api_docs", tooPedantic),
+    CommentedLintImpl("sort_constructors_first", tooPedantic),
+    CommentedLintImpl("super_goes_last", "Deprecated"),
     CommentedLintImpl(
       "unnecessary_brace_in_string_interps",
       tooPedantic,
@@ -385,26 +265,11 @@ class AnalysisOptionsRules {
       "unnecessary_null_checks",
       tooPedanticMayReconsider,
     ),
-    CommentedLintImpl(
-      "unnecessary_raw_strings",
-      tooPedantic,
-    ),
-    CommentedLintImpl(
-      "unnecessary_string_escapes",
-      tooPedantic,
-    ),
-    CommentedLintImpl(
-      "unnecessary_string_interpolations",
-      tooPedantic,
-    ),
-    CommentedLintImpl(
-      "use_if_null_to_convert_nulls_to_bools",
-      tooPedantic,
-    ),
-    CommentedLintImpl(
-      "use_key_in_widget_constructors",
-      tooPedantic,
-    ),
+    CommentedLintImpl("unnecessary_raw_strings", tooPedantic),
+    CommentedLintImpl("unnecessary_string_escapes", tooPedantic),
+    CommentedLintImpl("unnecessary_string_interpolations", tooPedantic),
+    CommentedLintImpl("use_if_null_to_convert_nulls_to_bools", tooPedantic),
+    CommentedLintImpl("use_key_in_widget_constructors", tooPedantic),
     CommentedLintImpl(
       "use_late_for_private_fields_and_variables",
       tooPedantic,
@@ -414,14 +279,8 @@ class AnalysisOptionsRules {
       "There could be multiple constants with the "
           "same value but different identifiers.",
     ),
-    CommentedLintImpl(
-      "use_raw_strings",
-      tooPedantic,
-    ),
-    CommentedLintImpl(
-      "use_setters_to_change_properties",
-      tooPedantic,
-    ),
+    CommentedLintImpl("use_raw_strings", tooPedantic),
+    CommentedLintImpl("use_setters_to_change_properties", tooPedantic),
     CommentedLintImpl(
       "null_check_on_nullable_type_parameter",
       "Too many false positives.",
@@ -429,6 +288,10 @@ class AnalysisOptionsRules {
     CommentedLintImpl(
       "require_trailing_commas",
       "Too many nonsensical cases especially in tests.",
+    ),
+    CommentedLintImpl(
+      "avoid_field_initializers_in_const_classes",
+      tooPedantic,
     ),
   ];
 

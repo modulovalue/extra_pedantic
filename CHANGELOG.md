@@ -1,11 +1,17 @@
+## 1.5.0 (2021-05-28)
+
+- added comment_references.
+- removed avoid_field_initializers_in_const_classes.
+- added an empty analysis_options file.
+
 ## 1.4.0 (2021-05-20)
 
-- Added many new lints
+- Added many new lints.
 - All available lints should now either be enabled or commented out.
 
 ## 1.3.0 (2021-02-14)
 
-- Removed use_to_and_as_if_applicable and prefer_void_to_null
+- Removed use_to_and_as_if_applicable and prefer_void_to_null.
 - Added more rules.
 - Removed flutter analysis_options.
 

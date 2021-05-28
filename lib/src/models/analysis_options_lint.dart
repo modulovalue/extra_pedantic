@@ -13,12 +13,14 @@ abstract class CommentedLint {
 }
 
 class CommentedLintImpl implements CommentedLint {
+  final String lintString;
   @override
   final String comment;
-  @override
-  final LintModel lint;
 
-  CommentedLintImpl(String lint, this.comment) : lint = LintModelImpl(lint);
+  @override
+  LintModel get lint => LintModelImpl(lintString);
+
+  const CommentedLintImpl(this.lintString, this.comment);
 }
 
 class AnalysisOptionLintImpl implements AnalysisOptionsLint {
