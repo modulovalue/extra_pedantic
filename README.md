@@ -4,6 +4,7 @@
 
 This is an alternative to [pedantic](https://github.com/dart-lang/pedantic) and [lints](https://pub.dev/packages/lints).
 
+[overview](https://github.com/modulovalue/extra_pedantic/blob/master/overview_detailed_2.0.0.png)
 
 To use extra_pedantic add it as a dev_dependency:
 
