@@ -1,0 +1,10 @@
+name: extra_pedantic
+description: Stricter Dart analyzer linter settings and best practices.
+version: 2.0.0
+# author: Modestas Valauskas <valauskasmodestas+dartpub@gmail.com>
+homepage: https://github.com/modulovalue/extra_pedantic
+repository: https://github.com/modulovalue/extra_pedantic
+issue_tracker: https://github.com/modulovalue/extra_pedantic/issues
+
+environment:
+  sdk: '>=2.15.0-0 <3.0.0'
