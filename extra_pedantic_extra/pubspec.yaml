@@ -4,10 +4,12 @@ version: 1.0.0
 publish_to: none
 
 environment:
-  sdk: '>=2.15.0-0 <3.0.0'
+  sdk: '>=2.16.0 <3.0.0'
 
 dependencies:
-  linter: 1.17.0
+  # To provide up-to-date information about officially supported lint rules
+  # TODO update to 1.26.0 once I set the dart sdk lower bound to 2.17.0
+  linter: 1.23.0
 
 dev_dependencies:
   extra_pedantic:

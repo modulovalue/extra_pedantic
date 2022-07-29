@@ -8,7 +8,9 @@ String build_status() {
   final linter_rules = all_linter_rules().toSet();
   final judged_rules = all_judged_rules()
       .map(
-        (final a) => rule_to_analysis_options_lint_rule_id(rule: a.lint_rule,),
+        (final a) => convert_ep_rule_to_analysis_options_lint_rule_id(
+          rule: a.lint_rule,
+        ),
       )
       .toSet();
   final judged_not_linter = judged_rules.difference(linter_rules);

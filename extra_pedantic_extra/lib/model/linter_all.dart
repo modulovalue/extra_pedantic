@@ -6,24 +6,23 @@ import 'package:linter/src/rules.dart';
 import 'generate.dart';
 import 'rules.dart';
 
-// TODO generate a readme.
 List<JudgedAndIdentified> judged_and_identified_rules() {
   return () sync* {
     final _all_sorted = all_judged_rules()
       ..sort(
-        (final a, final b) => rule_to_analysis_options_lint_rule_id(
+        (final a, final b) => convert_ep_rule_to_analysis_options_lint_rule_id(
           rule: a.lint_rule,
         ).compareTo(
-          rule_to_analysis_options_lint_rule_id(
+          convert_ep_rule_to_analysis_options_lint_rule_id(
             rule: b.lint_rule,
           ),
         ),
       );
     for (final rule in _all_sorted) {
-      final id = rule_to_analysis_options_lint_rule_id(
+      final id = convert_ep_rule_to_analysis_options_lint_rule_id(
         rule: rule.lint_rule,
       );
-      final detected_lint_rule = rule_index[id];
+      final detected_lint_rule = _official_rule_index[id];
       if (detected_lint_rule == null) {
         throw Exception("Unknown rule " + id);
       } else {
@@ -38,9 +37,9 @@ List<JudgedAndIdentified> judged_and_identified_rules() {
 }
 
 /// Extracts all lint rules from the dart linter rules.dart file.
-Iterable<String> all_linter_rules() => rule_index.keys;
+Iterable<String> all_linter_rules() => _official_rule_index.keys;
 
-final rule_index = () {
+final _official_rule_index = () {
   registerLintRules();
   final map = <String, LintRule>{};
   for (final rule in Analyzer.facade.registeredRules) {

@@ -15,6 +15,8 @@ String comment_description(
             return "Too pedantic.";
           case CommentType.obsolete_nnbd:
             return "Obsolete because of NNBD.";
+          case CommentType.too_many_false_positives:
+            return "Too many false positives.";
         }
       },
       custom: (final a) => a.comment,
@@ -26,6 +28,7 @@ enum CommentType {
   disturbs_flow,
   too_pedantic_may_reconsider,
   obsolete_nnbd,
+  too_many_false_positives,
 }
 
 const no_comment = CommentFixed(CommentType.empty);
@@ -33,6 +36,7 @@ const too_pedantic = CommentFixed(CommentType.too_pedantic);
 const disturbs_flow = CommentFixed(CommentType.disturbs_flow);
 const too_pedantic_may_reconsider = CommentFixed(CommentType.too_pedantic_may_reconsider);
 const obsolete_nnbd = CommentFixed(CommentType.obsolete_nnbd);
+const too_many_false_positives = CommentFixed(CommentType.too_many_false_positives);
 
 abstract class Comment {
   Z match<Z>({

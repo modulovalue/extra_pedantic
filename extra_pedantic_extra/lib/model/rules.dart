@@ -1,11 +1,12 @@
-String rule_to_analysis_options_lint_rule_id({
-  required final Rule rule,
+// TODO inline into the enum once dart sdk lower bound is 2.17.0
+String convert_ep_rule_to_analysis_options_lint_rule_id({
+  required final EPRule rule,
 }) =>
     rule.toString().substring(
           rule.toString().indexOf(".") + 1,
         );
 
-enum Rule {
+enum EPRule {
   always_declare_return_types,
   annotate_overrides,
   avoid_null_checks_in_equality_operators,
@@ -209,4 +210,7 @@ enum Rule {
   unnecessary_late,
   use_decorated_box,
   use_test_throws_matchers,
+  use_colored_box,
+  use_enums,
+  use_super_parameters,
 }

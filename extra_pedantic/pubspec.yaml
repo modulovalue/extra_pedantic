@@ -6,4 +6,4 @@ repository: https://github.com/modulovalue/extra_pedantic
 issue_tracker: https://github.com/modulovalue/extra_pedantic/issues
 
 environment:
-  sdk: '>=2.15.0-0 <3.0.0'
+  sdk: '>=2.16.0 <3.0.0'
