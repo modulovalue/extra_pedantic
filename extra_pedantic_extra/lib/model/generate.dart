@@ -1,5 +1,75 @@
 import 'comment.dart';
+import 'linter_all.dart';
 import 'rules.dart';
+
+String generate_readme({
+  required final String analysis_options,
+  required final String current_version,
+}) {
+  return [
+    // Header
+    """
+# extra_pedantic
+
+[![extra_pedantic on pub.dev](https://img.shields.io/badge/style-extra__pedantic-blue)](https://pub.dev/packages/extra_pedantic) [![Pub.dev](https://img.shields.io/pub/v/extra_pedantic.svg?style=flat-square&logo=data:image/png;base64,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)](https://pub.dartlang.org/packages/extra_pedantic) [![Github Stars](https://img.shields.io/github/stars/modulovalue/extra_pedantic?style=flat-square&logo=github)](https://github.com/modulovalue/extra_pedantic)  [![Twitter Follow](https://img.shields.io/twitter/follow/modulovalue?style=social&logo=twitter)](https://twitter.com/modulovalue) [![GitHub Follow](https://img.shields.io/github/followers/modulovalue?style=social&logo=github)](https://github.com/modulovalue)
+
+This is an alternative to [lints](https://pub.dev/packages/lints).
+""",
+    // Installation instructions.
+    """
+To use extra_pedantic:
+ * add it as a dev_dependency to your pubspec.yaml file:
+
+```yaml
+dev_dependencies:
+  extra_pedantic: ${current_version}
+```
+
+ * add this line to your `analysis_options.yaml` file:
+
+```yaml
+include: package:extra_pedantic/analysis_options.yaml
+```
+
+And that's it.
+
+---
+
+""",
+    // Overview
+    """
+Here is an overview of which lint rules are enabled and disabled:
+
+Rule Name | Status | Comment | Rule Description
+--- | --- | --- | ---
+${<List<String>>[
+      for (final x in all_judged_rules())
+        () {
+          final official_name = convert_ep_rule_to_analysis_options_lint_rule_id(rule: x.lint_rule);
+          return <String>[
+            official_name,
+            () {
+              final status = x.judgement.enabled;
+              if (status) {
+                return "✅";
+              } else {
+                return "❌";
+              }
+            }(),
+            comment_description(x.judgement.comment),
+            all_linter_rules_map()[official_name]!.description,
+          ];
+        }(),
+    ].map((final a) => a.join(" | ")).join("\n")}
+""",
+    """
+
+And here's the whole analysis options file:
+```yaml
+${analysis_options}
+```""",
+  ].join("\n");
+}
 
 String generate_analysis_options() {
   final analysis_options = analysis_options_string_from_rules(
@@ -274,7 +344,7 @@ Judgement judge(
     case EPRule.noop_primitive_operations:
       return const Judgement(no_comment, true);
     case EPRule.prefer_final_parameters:
-      return const Judgement(CommentCustom("This makes it easier to refactor code."), true);
+      return const Judgement(EPCommentCustom("This makes it easier to refactor code."), true);
     case EPRule.secure_pubspec_urls:
       return const Judgement(no_comment, true);
     case EPRule.unnecessary_constructor_name:
@@ -287,13 +357,13 @@ Judgement judge(
       return const Judgement(no_comment, true);
     case EPRule.use_super_parameters:
       return const Judgement(
-        CommentCustom(
+        EPCommentCustom(
           "Super parameters make inheritance more convenient, but "
           "inheritance should be avoided and composition should "
           "be preferred. Even if you need inheritance, you should declare "
           "an interface and mixins, and not use super constructors.",
         ),
-        true,
+        false,
       );
     case EPRule.use_test_throws_matchers:
       return const Judgement(too_pedantic_may_reconsider, false);
@@ -312,7 +382,7 @@ Judgement judge(
     case EPRule.depend_on_referenced_packages:
       return const Judgement(disturbs_flow, false);
     case EPRule.avoid_multiple_declarations_per_line:
-      return const Judgement(CommentCustom("Has false positives."), false);
+      return const Judgement(EPCommentCustom("Has false positives."), false);
     case EPRule.avoid_private_typedef_functions:
       return const Judgement(too_pedantic, false);
     case EPRule.avoid_final_parameters:
@@ -329,7 +399,7 @@ Judgement judge(
       return const Judgement(obsolete_nnbd, false);
     case EPRule.camel_case_extensions:
       return const Judgement(
-          CommentCustom(
+          EPCommentCustom(
             "Disabled because an underscore is useful to "
             "represent domains in generated code.",
           ),
@@ -345,7 +415,7 @@ Judgement judge(
     case EPRule.avoid_as:
       return const Judgement(too_pedantic, false);
     case EPRule.unnecessary_this:
-      return const Judgement(CommentCustom("Too many false positives."), false);
+      return const Judgement(EPCommentCustom("Too many false positives."), false);
     case EPRule.prefer_bool_in_asserts:
       return const Judgement(no_comment, false);
     case EPRule.use_to_and_as_if_applicable:
@@ -354,28 +424,28 @@ Judgement judge(
       return const Judgement(too_pedantic, false);
     case EPRule.prefer_function_declarations_over_variables:
       return const Judgement(
-          CommentCustom("With variables, the return type can be omitted safely "
+          EPCommentCustom("With variables, the return type can be omitted safely "
               "which is useful in FP-style code."),
           false);
     case EPRule.always_use_package_imports:
-      return const Judgement(CommentCustom("Prefer relative imports"), false);
+      return const Judgement(EPCommentCustom("Prefer relative imports"), false);
     case EPRule.avoid_annotating_with_dynamic:
-      return const Judgement(CommentCustom("It is better to always be explicit about dynamic."), false);
+      return const Judgement(EPCommentCustom("It is better to always be explicit about dynamic."), false);
     case EPRule.avoid_bool_literals_in_conditional_expressions:
       return const Judgement(
-          CommentCustom("bool literals in conditional expressions make it " +
+          EPCommentCustom("bool literals in conditional expressions make it " +
               "easier to reason about them. X ? Y : Z is easier " +
               "for humans than e.g. X || Z"),
           false);
     case EPRule.avoid_classes_with_only_static_members:
       return const Judgement(
-          CommentCustom("Classes with static members don't pollute the global namespace."), false);
+          EPCommentCustom("Classes with static members don't pollute the global namespace."), false);
     case EPRule.avoid_escaping_inner_quotes:
       return const Judgement(too_pedantic, false);
     case EPRule.avoid_function_literals_in_foreach_calls:
       return const Judgement(disturbs_flow, false);
     case EPRule.avoid_equals_and_hash_code_on_mutable_classes:
-      return const Judgement(CommentCustom("@immutable depends on meta."), false);
+      return const Judgement(EPCommentCustom("@immutable depends on meta."), false);
     case EPRule.avoid_positional_boolean_parameters:
       return const Judgement(too_pedantic, false);
     case EPRule.avoid_print:
@@ -391,7 +461,7 @@ Judgement judge(
     case EPRule.avoid_unnecessary_containers:
       return const Judgement(disturbs_flow, false);
     case EPRule.camel_case_types:
-      return const Judgement(CommentCustom("Underscores can be useful in generated code."), false);
+      return const Judgement(EPCommentCustom("Underscores can be useful in generated code."), false);
     case EPRule.cascade_invocations:
       return const Judgement(too_pedantic, false);
     case EPRule.constant_identifier_names:
@@ -437,15 +507,15 @@ Judgement judge(
     case EPRule.sort_constructors_first:
       return const Judgement(too_pedantic, false);
     case EPRule.super_goes_last:
-      return const Judgement(CommentCustom("Deprecated"), false);
+      return const Judgement(EPCommentCustom("Deprecated"), false);
     case EPRule.unnecessary_brace_in_string_interps:
       return const Judgement(too_pedantic, false);
     case EPRule.unnecessary_final:
       return const Judgement(
-          CommentCustom("final tells the reader 'This variable won't be mutated.'"), false);
+          EPCommentCustom("final tells the reader 'This variable won't be mutated.'"), false);
     case EPRule.unnecessary_lambdas:
       return const Judgement(
-          CommentCustom("In rare cases it is possible for this to introduce bugs."), false);
+          EPCommentCustom("In rare cases it is possible for this to introduce bugs."), false);
     case EPRule.unnecessary_null_checks:
       return const Judgement(too_pedantic_may_reconsider, false);
     case EPRule.unnecessary_raw_strings:
@@ -462,7 +532,7 @@ Judgement judge(
       return const Judgement(too_pedantic, false);
     case EPRule.use_named_constants:
       return const Judgement(
-        CommentCustom("There could be multiple constants with the same value but different identifiers."),
+        EPCommentCustom("There could be multiple constants with the same value but different identifiers."),
         false,
       );
     case EPRule.use_raw_strings:
@@ -470,7 +540,7 @@ Judgement judge(
     case EPRule.use_setters_to_change_properties:
       return const Judgement(too_pedantic, false);
     case EPRule.null_check_on_nullable_type_parameter:
-      return const Judgement(CommentCustom("Too many false positives."), false);
+      return const Judgement(EPCommentCustom("Too many false positives."), false);
     case EPRule.require_trailing_commas:
       return const Judgement(too_pedantic, false);
     case EPRule.avoid_field_initializers_in_const_classes:
@@ -536,7 +606,7 @@ class JudgedRule {
 }
 
 class Judgement {
-  final Comment comment;
+  final EPComment comment;
   final bool enabled;
 
   const Judgement(

@@ -37,7 +37,9 @@ List<JudgedAndIdentified> judged_and_identified_rules() {
 }
 
 /// Extracts all lint rules from the dart linter rules.dart file.
-Iterable<String> all_linter_rules() => _official_rule_index.keys;
+Iterable<String> all_linter_rules() => all_linter_rules_map().keys;
+
+Map<String, LintRule> all_linter_rules_map() => _official_rule_index;
 
 final _official_rule_index = () {
   registerLintRules();

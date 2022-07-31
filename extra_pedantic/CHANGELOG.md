@@ -1,3 +1,8 @@
+## 3.0.0 (2022-07-31)
+- disabled invariant_booleans (too many false positives)
+- enabled strict casts checks.
+- enabled some new flutter related rules.
+
 ## 2.0.0 (2022-02-18)
 
 This release comes with a gigantic overview image

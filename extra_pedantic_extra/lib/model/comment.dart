@@ -1,28 +1,28 @@
 /// Serializes a comment to a human readable string.
 String comment_description(
-  final Comment c,
+  final EPComment c,
 ) =>
     c.match(
       fixed: (final a) {
         switch (a.type) {
-          case CommentType.empty:
+          case EPCommentType.empty:
             return "No comment.";
-          case CommentType.too_pedantic:
+          case EPCommentType.too_pedantic:
             return "Too pedantic.";
-          case CommentType.disturbs_flow:
+          case EPCommentType.disturbs_flow:
             return "Disabled because this rule decreases productivity by disturbing flow.";
-          case CommentType.too_pedantic_may_reconsider:
+          case EPCommentType.too_pedantic_may_reconsider:
             return "Too pedantic.";
-          case CommentType.obsolete_nnbd:
+          case EPCommentType.obsolete_nnbd:
             return "Obsolete because of NNBD.";
-          case CommentType.too_many_false_positives:
+          case EPCommentType.too_many_false_positives:
             return "Too many false positives.";
         }
       },
       custom: (final a) => a.comment,
     );
 
-enum CommentType {
+enum EPCommentType {
   empty,
   too_pedantic,
   disturbs_flow,
@@ -31,46 +31,46 @@ enum CommentType {
   too_many_false_positives,
 }
 
-const no_comment = CommentFixed(CommentType.empty);
-const too_pedantic = CommentFixed(CommentType.too_pedantic);
-const disturbs_flow = CommentFixed(CommentType.disturbs_flow);
-const too_pedantic_may_reconsider = CommentFixed(CommentType.too_pedantic_may_reconsider);
-const obsolete_nnbd = CommentFixed(CommentType.obsolete_nnbd);
-const too_many_false_positives = CommentFixed(CommentType.too_many_false_positives);
+const no_comment = EPCommentFixed(EPCommentType.empty);
+const too_pedantic = EPCommentFixed(EPCommentType.too_pedantic);
+const disturbs_flow = EPCommentFixed(EPCommentType.disturbs_flow);
+const too_pedantic_may_reconsider = EPCommentFixed(EPCommentType.too_pedantic_may_reconsider);
+const obsolete_nnbd = EPCommentFixed(EPCommentType.obsolete_nnbd);
+const too_many_false_positives = EPCommentFixed(EPCommentType.too_many_false_positives);
 
-abstract class Comment {
+abstract class EPComment {
   Z match<Z>({
-    required final Z Function(CommentFixed) fixed,
-    required final Z Function(CommentCustom) custom,
+    required final Z Function(EPCommentFixed) fixed,
+    required final Z Function(EPCommentCustom) custom,
   });
 }
 
-class CommentFixed implements Comment {
-  final CommentType type;
+class EPCommentFixed implements EPComment {
+  final EPCommentType type;
 
-  const CommentFixed(
+  const EPCommentFixed(
     this.type,
   );
 
   @override
   Z match<Z>({
-    required final Z Function(CommentFixed) fixed,
-    required final Z Function(CommentCustom) custom,
+    required final Z Function(EPCommentFixed) fixed,
+    required final Z Function(EPCommentCustom) custom,
   }) =>
       fixed(this);
 }
 
-class CommentCustom implements Comment {
+class EPCommentCustom implements EPComment {
   final String comment;
 
-  const CommentCustom(
+  const EPCommentCustom(
     this.comment,
   );
 
   @override
   Z match<Z>({
-    required final Z Function(CommentFixed) fixed,
-    required final Z Function(CommentCustom) custom,
+    required final Z Function(EPCommentFixed) fixed,
+    required final Z Function(EPCommentCustom) custom,
   }) =>
       custom(this);
 }

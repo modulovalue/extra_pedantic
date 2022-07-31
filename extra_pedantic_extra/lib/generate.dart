@@ -2,12 +2,18 @@ import 'model/generate.dart';
 
 /// This is used to generate analysis options
 /// files that were updated.
-// TODO generate a readme alongside the analysis options file.
-// TODO   * static header
-// TODO   * static description
-// TODO   * dynamic installation instructions with up-to-date version
-// TODO   * dynamic table with all enabled and disabled rules.
-// TODO then remove all overview images from the repo.
 void main() {
-  print(generate_analysis_options());
+  final analysis_options_file = generate_analysis_options();
+  print(
+    analysis_options_file,
+  );
+  print(
+    "\n" * 10,
+  );
+  print(
+    generate_readme(
+      analysis_options: analysis_options_file,
+      current_version: "2.0.0",
+    ),
+  );
 }
