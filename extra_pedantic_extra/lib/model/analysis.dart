@@ -20,7 +20,7 @@ String build_status() {
   final enabled = all_judged_rules().where((final a) => a.judgement.enabled).toList();
   final disabled = all_judged_rules().where((final a) => !a.judgement.enabled).toList();
   return <String>[
-    " • Officially deprecated i.e no-longer-supported but still judged or unknown rules: " +
+    " • Officially deprecated i.e no-longer-supported, but still judged or unknown rules: " +
         deprecated_and_removed.length.toString(),
     deprecated_and_removed.join("\n"),
     " • New rules: " + new_rules.length.toString(),
