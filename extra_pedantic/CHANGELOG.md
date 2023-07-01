@@ -1,3 +1,7 @@
+## 4.0.0 (2023-07-01)
+- removed deprecated analyses
+- updated to linter 1.30.0 & Dart 2.19.0
+
 ## 3.0.0 (2022-07-31)
 - disabled invariant_booleans (too many false positives)
 - enabled strict casts checks.
