@@ -48,14 +48,16 @@ ${<List<String>>[
           final official_name = convert_ep_rule_to_analysis_options_lint_rule_id(rule: x.lint_rule);
           return <String>[
             official_name,
-            () {
-              final status = x.judgement.enabled;
-              if (status) {
-                return "✅";
-              } else {
-                return "❌";
-              }
-            }(),
+            x.judgement.enabled.match(
+              disabled: (final a) => "❌",
+              enabled: (final a) {
+                if (a.essential) {
+                  return "✅💪";
+                } else {
+                  return "✅🌱";
+                }
+              },
+            ),
             comment_description(x.judgement.comment),
             all_linter_rules_map()[official_name]!.description,
           ];
@@ -71,26 +73,22 @@ ${analysis_options}
   ].join("\n");
 }
 
-String generate_analysis_options() {
+String generate_analysis_options({
+  required final bool only_essential,
+}) {
+  int order(
+    final Judgement j,
+  ) =>
+      j.enabled.match(
+        disabled: (final a) => 1,
+        enabled: (final a) => 0,
+      );
+
   final analysis_options = analysis_options_string_from_rules(
+    only_essential: only_essential,
     lints: all_judged_rules()
       ..sort(
-        (final a, final b) => (() {
-          if (a.judgement.enabled) {
-            return 0;
-          } else {
-            return 1;
-          }
-        }())
-            .compareTo(
-          () {
-            if (b.judgement.enabled) {
-              return 0;
-            } else {
-              return 1;
-            }
-          }(),
-        ),
+        (final a, final b) => order(a.judgement).compareTo(order(b.judgement)),
       ),
   );
   return analysis_options;
@@ -110,251 +108,251 @@ Judgement judge(
 ) {
   switch (rule) {
     case EPRule.conditional_uri_does_not_exist:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.always_declare_return_types:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.annotate_overrides:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.avoid_null_checks_in_equality_operators:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.prefer_collection_literals:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.prefer_conditional_assignment:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.prefer_final_fields:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.prefer_for_elements_to_map_fromIterable:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.prefer_generic_function_type_aliases:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.prefer_if_null_operators:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.prefer_spread_collections:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.use_function_type_syntax_for_parameters:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.avoid_empty_else:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.avoid_init_to_null:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.avoid_relative_lib_imports:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.avoid_return_types_on_setters:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.avoid_shadowing_type_parameters:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.avoid_types_as_parameter_names:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.curly_braces_in_flow_control_structures:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.empty_catches:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.empty_constructor_bodies:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.library_names:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.library_prefixes:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.no_duplicate_case_values:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.null_closures:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.prefer_contains:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.prefer_equal_for_default_values:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.prefer_is_empty:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.prefer_is_not_empty:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.prefer_iterable_whereType:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.recursive_getters:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.slash_for_doc_comments:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.type_init_formals:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.unawaited_futures:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.unnecessary_const:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.unnecessary_new:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.unnecessary_null_in_if_null_operators:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.unrelated_type_equality_checks:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.use_rethrow_when_possible:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.valid_regexps:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.control_flow_in_finally:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.prefer_final_locals:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.throw_in_finally:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.await_only_futures:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.cancel_subscriptions:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.close_sinks:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.hash_and_equals:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.implementation_imports:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.package_api_docs:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.package_names:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.package_prefixed_library_names:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.test_types_in_equals:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.unnecessary_getters_setters:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.void_checks:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.type_annotate_public_apis:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.avoid_slow_async_io:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.invariant_booleans:
-      return const Judgement(too_many_false_positives, false);
+      return const Judgement(too_many_false_positives, _disabled);
     case EPRule.iterable_contains_unrelated_type:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.list_remove_unrelated_type:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.literal_only_boolean_expressions:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.no_adjacent_strings_in_list:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.directives_ordering:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.only_throw_errors:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.prefer_asserts_in_initializer_lists:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.prefer_const_constructors:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.prefer_const_constructors_in_immutables:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.prefer_typing_uninitialized_variables:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.unnecessary_null_aware_assignments:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.unnecessary_overrides:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.use_string_buffers:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.use_full_hex_values_for_flutter_colors:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.prefer_inlined_adds:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.unnecessary_parenthesis:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.prefer_const_declarations:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.prefer_null_aware_operators:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.always_put_required_named_parameters_first:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.avoid_catching_errors:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.avoid_double_and_int_checks:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.empty_statements:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.avoid_implementing_value_types:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.avoid_js_rounded_ints:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.avoid_returning_null_for_future:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.avoid_returning_null_for_void:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.avoid_returning_this:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.avoid_single_cascade_in_expression_statements:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.avoid_unused_constructor_parameters:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.avoid_void_async:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.join_return_with_assignment:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.parameter_assignments:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.prefer_final_in_for_each:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.prefer_initializing_formals:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.provide_deprecation_message:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.sort_pub_dependencies:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.sort_unnamed_constructors_first:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.unnecessary_await_in_return:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.unsafe_html:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.file_names:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.cast_nullable_to_non_nullable:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.exhaustive_cases:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.prefer_relative_imports:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.tighten_type_of_initializing_formals:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.avoid_dynamic_calls:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.avoid_catches_without_on_clauses:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.avoid_type_to_string:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.avoid_web_libraries_in_flutter:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.no_default_cases:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.no_logic_in_create_state:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.overridden_fields:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.prefer_asserts_with_message:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.prefer_mixin:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.prefer_null_aware_method_calls:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.unnecessary_nullable_for_final_variable_declarations:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.unnecessary_statements:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.use_build_context_synchronously:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.use_is_even_rather_than_modulo:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.comment_references:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.noop_primitive_operations:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.prefer_final_parameters:
-      return const Judgement(EPCommentCustom("This makes it easier to refactor code."), true);
+      return const Judgement(EPCommentCustom("This makes it easier to refactor code."), _enabled_important);
     case EPRule.secure_pubspec_urls:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.unnecessary_constructor_name:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.unnecessary_late:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.use_colored_box:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.use_enums:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.use_super_parameters:
       return const Judgement(
         EPCommentCustom(
@@ -363,222 +361,235 @@ Judgement judge(
           "be preferred. Even if you need inheritance, you should declare "
           "an interface and mixins, and not use super constructors.",
         ),
-        false,
+        _disabled,
       );
     case EPRule.use_test_throws_matchers:
-      return const Judgement(too_pedantic_may_reconsider, false);
+      return const Judgement(too_pedantic_may_reconsider, _disabled);
     case EPRule.use_decorated_box:
-      return const Judgement(disturbs_flow, false);
+      return const Judgement(disturbs_flow, _disabled);
     case EPRule.sized_box_shrink_expand:
-      return const Judgement(disturbs_flow, false);
+      return const Judgement(disturbs_flow, _disabled);
     case EPRule.sized_box_for_whitespace:
-      return const Judgement(disturbs_flow, false);
+      return const Judgement(disturbs_flow, _disabled);
     case EPRule.no_leading_underscores_for_local_identifiers:
-      return const Judgement(too_pedantic, false);
+      return const Judgement(too_pedantic, _disabled);
     case EPRule.no_leading_underscores_for_library_prefixes:
-      return const Judgement(too_pedantic, false);
+      return const Judgement(too_pedantic, _disabled);
     case EPRule.eol_at_end_of_file:
-      return const Judgement(too_pedantic_may_reconsider, false);
+      return const Judgement(too_pedantic_may_reconsider, _disabled);
     case EPRule.depend_on_referenced_packages:
-      return const Judgement(disturbs_flow, false);
+      return const Judgement(disturbs_flow, _disabled);
     case EPRule.avoid_multiple_declarations_per_line:
-      return const Judgement(EPCommentCustom("Has false positives."), false);
+      return const Judgement(EPCommentCustom("Has false positives."), _disabled);
     case EPRule.avoid_private_typedef_functions:
-      return const Judgement(too_pedantic, false);
+      return const Judgement(too_pedantic, _disabled);
     case EPRule.avoid_final_parameters:
-      return const Judgement(no_comment, false);
+      return const Judgement(no_comment, _disabled);
     case EPRule.avoid_returning_null:
-      return const Judgement(obsolete_nnbd, false);
+      return const Judgement(obsolete_nnbd, _disabled);
     case EPRule.prefer_if_elements_to_conditional_expressions:
-      return const Judgement(disturbs_flow, false);
+      return const Judgement(disturbs_flow, _disabled);
     case EPRule.prefer_foreach:
-      return const Judgement(disturbs_flow, false);
+      return const Judgement(disturbs_flow, _disabled);
     case EPRule.always_require_non_null_named_parameters:
-      return const Judgement(obsolete_nnbd, false);
+      return const Judgement(obsolete_nnbd, _disabled);
     case EPRule.prefer_void_to_null:
-      return const Judgement(obsolete_nnbd, false);
+      return const Judgement(obsolete_nnbd, _disabled);
     case EPRule.camel_case_extensions:
       return const Judgement(
-          EPCommentCustom(
-            "Disabled because an underscore is useful to "
-            "represent domains in generated code.",
-          ),
-          false);
+        EPCommentCustom(
+          "Disabled because an underscore is useful to "
+          "represent domains in generated code.",
+        ),
+        _disabled,
+      );
     case EPRule.omit_local_variable_types:
-      return const Judgement(too_pedantic, false);
+      return const Judgement(too_pedantic, _disabled);
     case EPRule.prefer_adjacent_string_concatenation:
-      return const Judgement(no_comment, false);
+      return const Judgement(no_comment, _disabled);
     case EPRule.prefer_single_quotes:
-      return const Judgement(too_pedantic, false);
+      return const Judgement(too_pedantic, _disabled);
     case EPRule.always_put_control_body_on_new_line:
-      return const Judgement(too_pedantic, false);
+      return const Judgement(too_pedantic, _disabled);
     case EPRule.avoid_as:
-      return const Judgement(too_pedantic, false);
+      return const Judgement(too_pedantic, _disabled);
     case EPRule.unnecessary_this:
-      return const Judgement(EPCommentCustom("Too many false positives."), false);
+      return const Judgement(EPCommentCustom("Too many false positives."), _disabled);
     case EPRule.prefer_bool_in_asserts:
-      return const Judgement(no_comment, false);
+      return const Judgement(no_comment, _disabled);
     case EPRule.use_to_and_as_if_applicable:
-      return const Judgement(too_pedantic, false);
+      return const Judgement(too_pedantic, _disabled);
     case EPRule.sort_child_properties_last:
-      return const Judgement(too_pedantic, false);
+      return const Judgement(too_pedantic, _disabled);
     case EPRule.prefer_function_declarations_over_variables:
       return const Judgement(
-          EPCommentCustom("With variables, the return type can be omitted safely "
-              "which is useful in FP-style code."),
-          false);
+        EPCommentCustom(
+          "With variables, the return type can be omitted safely "
+          "which is useful in FP-style code.",
+        ),
+        _disabled,
+      );
     case EPRule.always_use_package_imports:
-      return const Judgement(EPCommentCustom("Prefer relative imports"), false);
+      return const Judgement(EPCommentCustom("Prefer relative imports"), _disabled);
     case EPRule.avoid_annotating_with_dynamic:
-      return const Judgement(EPCommentCustom("It is better to always be explicit about dynamic."), false);
+      return const Judgement(EPCommentCustom("It is better to always be explicit about dynamic."), _disabled);
     case EPRule.avoid_bool_literals_in_conditional_expressions:
       return const Judgement(
-          EPCommentCustom("bool literals in conditional expressions make it " +
+        EPCommentCustom(
+          "bool literals in conditional expressions make it " +
               "easier to reason about them. X ? Y : Z is easier " +
-              "for humans than e.g. X || Z"),
-          false);
+              "for humans than e.g. X || Z",
+        ),
+        _disabled,
+      );
     case EPRule.avoid_classes_with_only_static_members:
       return const Judgement(
-          EPCommentCustom("Classes with static members don't pollute the global namespace."), false);
+          EPCommentCustom("Classes with static members don't pollute the global namespace."), _disabled);
     case EPRule.avoid_escaping_inner_quotes:
-      return const Judgement(too_pedantic, false);
+      return const Judgement(too_pedantic, _disabled);
     case EPRule.avoid_function_literals_in_foreach_calls:
-      return const Judgement(disturbs_flow, false);
+      return const Judgement(disturbs_flow, _disabled);
     case EPRule.avoid_equals_and_hash_code_on_mutable_classes:
-      return const Judgement(EPCommentCustom("@immutable depends on meta."), false);
+      return const Judgement(EPCommentCustom("@immutable depends on meta."), _disabled);
     case EPRule.avoid_positional_boolean_parameters:
-      return const Judgement(too_pedantic, false);
+      return const Judgement(too_pedantic, _disabled);
     case EPRule.avoid_print:
-      return const Judgement(too_pedantic, false);
+      return const Judgement(too_pedantic, _disabled);
     case EPRule.avoid_redundant_argument_values:
-      return const Judgement(too_pedantic, false);
+      return const Judgement(too_pedantic, _disabled);
     case EPRule.avoid_renaming_method_parameters:
-      return const Judgement(too_pedantic_may_reconsider, false);
+      return const Judgement(too_pedantic_may_reconsider, _disabled);
     case EPRule.avoid_setters_without_getters:
-      return const Judgement(too_pedantic_may_reconsider, false);
+      return const Judgement(too_pedantic_may_reconsider, _disabled);
     case EPRule.avoid_types_on_closure_parameters:
-      return const Judgement(too_pedantic, false);
+      return const Judgement(too_pedantic, _disabled);
     case EPRule.avoid_unnecessary_containers:
-      return const Judgement(disturbs_flow, false);
+      return const Judgement(disturbs_flow, _disabled);
     case EPRule.camel_case_types:
-      return const Judgement(EPCommentCustom("Underscores can be useful in generated code."), false);
+      return const Judgement(EPCommentCustom("Underscores can be useful in generated code."), _disabled);
     case EPRule.cascade_invocations:
-      return const Judgement(too_pedantic, false);
+      return const Judgement(too_pedantic, _disabled);
     case EPRule.constant_identifier_names:
-      return const Judgement(too_pedantic, false);
+      return const Judgement(too_pedantic, _disabled);
     case EPRule.deprecated_consistency:
-      return const Judgement(too_pedantic, false);
+      return const Judgement(too_pedantic, _disabled);
     case EPRule.diagnostic_describe_all_properties:
-      return const Judgement(too_pedantic, false);
+      return const Judgement(too_pedantic, _disabled);
     case EPRule.flutter_style_todos:
-      return const Judgement(too_pedantic, false);
+      return const Judgement(too_pedantic, _disabled);
     case EPRule.do_not_use_environment:
-      return const Judgement(too_pedantic_may_reconsider, false);
+      return const Judgement(too_pedantic_may_reconsider, _disabled);
     case EPRule.leading_newlines_in_multiline_strings:
-      return const Judgement(too_pedantic, false);
+      return const Judgement(too_pedantic, _disabled);
     case EPRule.library_private_types_in_public_api:
-      return const Judgement(too_pedantic, false);
+      return const Judgement(too_pedantic, _disabled);
     case EPRule.lines_longer_than_80_chars:
-      return const Judgement(too_pedantic, false);
+      return const Judgement(too_pedantic, _disabled);
     case EPRule.missing_whitespace_between_adjacent_strings:
-      return const Judgement(too_pedantic, false);
+      return const Judgement(too_pedantic, _disabled);
     case EPRule.non_constant_identifier_names:
-      return const Judgement(too_pedantic, false);
+      return const Judgement(too_pedantic, _disabled);
     case EPRule.no_runtimeType_toString:
-      return const Judgement(too_pedantic_may_reconsider, false);
+      return const Judgement(too_pedantic_may_reconsider, _disabled);
     case EPRule.one_member_abstracts:
-      return const Judgement(too_pedantic, false);
+      return const Judgement(too_pedantic, _disabled);
     case EPRule.prefer_const_literals_to_create_immutables:
-      return const Judgement(too_pedantic, false);
+      return const Judgement(too_pedantic, _disabled);
     case EPRule.prefer_constructors_over_static_methods:
-      return const Judgement(too_pedantic, false);
+      return const Judgement(too_pedantic, _disabled);
     case EPRule.prefer_double_quotes:
-      return const Judgement(too_pedantic, false);
+      return const Judgement(too_pedantic, _disabled);
     case EPRule.prefer_expression_function_bodies:
-      return const Judgement(too_pedantic, false);
+      return const Judgement(too_pedantic, _disabled);
     case EPRule.prefer_interpolation_to_compose_strings:
-      return const Judgement(too_pedantic, false);
+      return const Judgement(too_pedantic, _disabled);
     case EPRule.prefer_int_literals:
-      return const Judgement(too_pedantic, false);
+      return const Judgement(too_pedantic, _disabled);
     case EPRule.prefer_is_not_operator:
-      return const Judgement(too_pedantic, false);
+      return const Judgement(too_pedantic, _disabled);
     case EPRule.public_member_api_docs:
-      return const Judgement(too_pedantic, false);
+      return const Judgement(too_pedantic, _disabled);
     case EPRule.sort_constructors_first:
-      return const Judgement(too_pedantic, false);
+      return const Judgement(too_pedantic, _disabled);
     case EPRule.super_goes_last:
-      return const Judgement(EPCommentCustom("Deprecated"), false);
+      return const Judgement(EPCommentCustom("Deprecated"), _disabled);
     case EPRule.unnecessary_brace_in_string_interps:
-      return const Judgement(too_pedantic, false);
+      return const Judgement(too_pedantic, _disabled);
     case EPRule.unnecessary_final:
       return const Judgement(
-          EPCommentCustom("final tells the reader 'This variable won't be mutated.'"), false);
+          EPCommentCustom("final tells the reader 'This variable won't be mutated.'"), _disabled);
     case EPRule.unnecessary_lambdas:
       return const Judgement(
-          EPCommentCustom("In rare cases it is possible for this to introduce bugs."), false);
+          EPCommentCustom("In rare cases it is possible for this to introduce bugs."), _disabled);
     case EPRule.unnecessary_null_checks:
-      return const Judgement(too_pedantic_may_reconsider, false);
+      return const Judgement(too_pedantic_may_reconsider, _disabled);
     case EPRule.unnecessary_raw_strings:
-      return const Judgement(too_pedantic, false);
+      return const Judgement(too_pedantic, _disabled);
     case EPRule.unnecessary_string_escapes:
-      return const Judgement(too_pedantic, false);
+      return const Judgement(too_pedantic, _disabled);
     case EPRule.unnecessary_string_interpolations:
-      return const Judgement(too_pedantic, false);
+      return const Judgement(too_pedantic, _disabled);
     case EPRule.use_if_null_to_convert_nulls_to_bools:
-      return const Judgement(too_pedantic, false);
+      return const Judgement(too_pedantic, _disabled);
     case EPRule.use_key_in_widget_constructors:
-      return const Judgement(too_pedantic, false);
+      return const Judgement(too_pedantic, _disabled);
     case EPRule.use_late_for_private_fields_and_variables:
-      return const Judgement(too_pedantic, false);
+      return const Judgement(too_pedantic, _disabled);
     case EPRule.use_named_constants:
       return const Judgement(
-        EPCommentCustom("There could be multiple constants with the same value but different identifiers."),
-        false,
+        EPCommentCustom(
+          "There could be multiple constants with the same value but different identifiers.",
+        ),
+        _disabled,
       );
     case EPRule.use_raw_strings:
-      return const Judgement(too_pedantic, false);
+      return const Judgement(too_pedantic, _disabled);
     case EPRule.use_setters_to_change_properties:
-      return const Judgement(too_pedantic, false);
+      return const Judgement(too_pedantic, _disabled);
     case EPRule.null_check_on_nullable_type_parameter:
-      return const Judgement(EPCommentCustom("Too many false positives."), false);
+      return const Judgement(EPCommentCustom("Too many false positives."), _disabled);
     case EPRule.require_trailing_commas:
-      return const Judgement(too_pedantic, false);
+      return const Judgement(too_pedantic, _disabled);
     case EPRule.avoid_field_initializers_in_const_classes:
-      return const Judgement(too_pedantic, false);
+      return const Judgement(too_pedantic, _disabled);
     case EPRule.always_specify_types:
-      return const Judgement(too_pedantic, false);
+      return const Judgement(too_pedantic, _disabled);
     case EPRule.unnecessary_library_directive:
-      return const Judgement(too_pedantic, false);
+      return const Judgement(too_pedantic, _disabled);
     case EPRule.collection_methods_unrelated_type:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.combinators_ordering:
-      return const Judgement(too_pedantic, false);
+      return const Judgement(too_pedantic, _disabled);
     case EPRule.dangling_library_doc_comments:
-      return const Judgement(too_pedantic, false);
+      return const Judgement(too_pedantic, _disabled);
     case EPRule.discarded_futures:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.implicit_call_tearoffs:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.library_annotations:
-      return const Judgement(too_pedantic, false);
+      return const Judgement(too_pedantic, _disabled);
     case EPRule.unnecessary_null_aware_operator_on_extension_on_nullable:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.unnecessary_to_list_in_spreads:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
     case EPRule.unreachable_from_main:
-      return const Judgement(too_pedantic, false);
+      return const Judgement(too_pedantic, _disabled);
     case EPRule.use_string_in_part_of_directives:
-      return const Judgement(no_comment, true);
+      return const Judgement(no_comment, _enabled_important);
   }
 }
 
 String analysis_options_string_from_rules({
   required final Iterable<JudgedRule> lints,
+  required final bool only_essential,
 }) =>
     <String>[
       """
 # ===============================================================
 # ======= This file was generated by extra_pedantic_extra =======
+# ===============================================================
+# === options:
+# ===  * only_essential: ${only_essential}
 # ===============================================================
 analyzer:
   # strong-mode:
@@ -599,13 +610,20 @@ linter:
       for (final lint in lints) //
         <String>[
           "    ",
-          (() {
-            if (lint.judgement.enabled) {
-              return "";
-            } else {
-              return "# ";
-            }
-          }()),
+          lint.judgement.enabled.match(
+            disabled: (final a) => "# ",
+            enabled: (final a) {
+              if (a.essential) {
+                return "";
+              } else {
+                if (only_essential) {
+                  return "# not considered essential: ";
+                } else {
+                  return "";
+                }
+              }
+            },
+          ),
           "- ",
           convert_ep_rule_to_analysis_options_lint_rule_id(
             rule: lint.lint_rule,
@@ -629,10 +647,47 @@ class JudgedRule {
 
 class Judgement {
   final EPComment comment;
-  final bool enabled;
+  final Enabledtype enabled;
 
   const Judgement(
-    final this.comment,
-    final this.enabled,
+    this.comment,
+    this.enabled,
   );
+}
+
+const _disabled = EnabledtypeDisabled();
+
+const _enabled_important = EnabledtypeEnabled(true);
+
+const _enabled_unimportant = EnabledtypeEnabled(true);
+
+abstract class Enabledtype {
+  R match<R>({
+    required final R Function(EnabledtypeDisabled) disabled,
+    required final R Function(EnabledtypeEnabled) enabled,
+  });
+}
+
+class EnabledtypeDisabled implements Enabledtype {
+  const EnabledtypeDisabled();
+
+  @override
+  R match<R>({
+    required final R Function(EnabledtypeDisabled) disabled,
+    required final R Function(EnabledtypeEnabled) enabled,
+  }) => disabled(this);
+}
+
+class EnabledtypeEnabled implements Enabledtype {
+  final bool essential;
+
+  const EnabledtypeEnabled(
+    this.essential,
+  );
+
+  @override
+  R match<R>({
+    required final R Function(EnabledtypeDisabled) disabled,
+    required final R Function(EnabledtypeEnabled) enabled,
+  }) => enabled(this);
 }

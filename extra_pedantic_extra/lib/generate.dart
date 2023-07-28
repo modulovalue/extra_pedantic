@@ -3,7 +3,10 @@ import 'model/generate.dart';
 /// This is used to generate analysis options
 /// files that were updated.
 void main() {
-  final analysis_options_file = generate_analysis_options();
+  // TODO create the necessary files directly.
+  final analysis_options_file = generate_analysis_options(
+    only_essential: false,
+  );
   print(
     analysis_options_file,
   );

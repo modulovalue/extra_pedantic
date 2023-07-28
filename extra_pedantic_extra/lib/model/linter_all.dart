@@ -55,7 +55,7 @@ class JudgedAndIdentified {
   final LintRule identified_rule;
 
   const JudgedAndIdentified(
-    final this.judged_rule,
-    final this.identified_rule,
+    this.judged_rule,
+    this.identified_rule,
   );
 }

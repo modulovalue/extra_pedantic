@@ -17,8 +17,8 @@ String build_status() {
   final linter_not_judged = linter_rules.difference(judged_rules);
   final deprecated_and_removed = judged_not_linter;
   final new_rules = linter_not_judged;
-  final enabled = all_judged_rules().where((final a) => a.judgement.enabled).toList();
-  final disabled = all_judged_rules().where((final a) => !a.judgement.enabled).toList();
+  final enabled = all_judged_rules().where((final a) => a.judgement.enabled.match(disabled: (final a) => false, enabled: (final a) => true)).toList();
+  final disabled = all_judged_rules().where((final a) => !a.judgement.enabled.match(disabled: (final a) => false, enabled: (final a) => true)).toList();
   return <String>[
     " • Officially deprecated i.e no-longer-supported, but still judged or unknown rules: " +
         deprecated_and_removed.length.toString(),
