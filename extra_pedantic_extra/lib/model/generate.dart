@@ -116,7 +116,7 @@ Judgement judge(
     case EPRule.avoid_null_checks_in_equality_operators:
       return const Judgement(no_comment, _enabled_important);
     case EPRule.prefer_collection_literals:
-      return const Judgement(no_comment, _enabled_important);
+      return const Judgement(too_pedantic, _disabled);
     case EPRule.prefer_conditional_assignment:
       return const Judgement(no_comment, _enabled_important);
     case EPRule.prefer_final_fields:
@@ -134,7 +134,7 @@ Judgement judge(
     case EPRule.avoid_empty_else:
       return const Judgement(no_comment, _enabled_important);
     case EPRule.avoid_init_to_null:
-      return const Judgement(no_comment, _enabled_important);
+      return const Judgement(too_pedantic, _disabled);
     case EPRule.avoid_relative_lib_imports:
       return const Judgement(no_comment, _enabled_important);
     case EPRule.avoid_return_types_on_setters:
@@ -246,7 +246,7 @@ Judgement judge(
     case EPRule.unnecessary_overrides:
       return const Judgement(no_comment, _enabled_important);
     case EPRule.use_string_buffers:
-      return const Judgement(no_comment, _enabled_important);
+      return const Judgement(too_pedantic, _disabled);
     case EPRule.use_full_hex_values_for_flutter_colors:
       return const Judgement(no_comment, _enabled_important);
     case EPRule.prefer_inlined_adds:
@@ -338,7 +338,7 @@ Judgement judge(
     case EPRule.use_is_even_rather_than_modulo:
       return const Judgement(no_comment, _enabled_important);
     case EPRule.comment_references:
-      return const Judgement(no_comment, _enabled_important);
+      return const Judgement(too_pedantic, _disabled);
     case EPRule.noop_primitive_operations:
       return const Judgement(no_comment, _enabled_important);
     case EPRule.prefer_final_parameters:
@@ -350,7 +350,7 @@ Judgement judge(
     case EPRule.unnecessary_late:
       return const Judgement(no_comment, _enabled_important);
     case EPRule.use_colored_box:
-      return const Judgement(no_comment, _enabled_important);
+      return const Judgement(disturbs_flow, _disabled);
     case EPRule.use_enums:
       return const Judgement(no_comment, _enabled_important);
     case EPRule.use_super_parameters:
@@ -576,6 +576,42 @@ Judgement judge(
       return const Judgement(too_pedantic, _disabled);
     case EPRule.use_string_in_part_of_directives:
       return const Judgement(no_comment, _enabled_important);
+    case EPRule.annotate_redeclares:
+      return const Judgement(no_comment, _enabled_important);
+    case EPRule.avoid_unstable_final_fields:
+      return const Judgement(no_comment, _enabled_important);
+    case EPRule.deprecated_member_use_from_same_package:
+      return const Judgement(no_comment, _enabled_important);
+    case EPRule.document_ignores:
+      return const Judgement(too_pedantic, _disabled);
+    case EPRule.enable_null_safety:
+      return const Judgement(obsolete_nnbd, _disabled);
+    case EPRule.erase_dart_type_extension_types:
+      return const Judgement(EPCommentCustom("Experimental."), _disabled);
+    case EPRule.implicit_reopen:
+      return const Judgement(EPCommentCustom("Experimental."), _disabled);
+    case EPRule.invalid_case_patterns:
+      return const Judgement(EPCommentCustom("Experimental."), _disabled);
+    case EPRule.invalid_runtime_check_with_js_interop_types:
+      return const Judgement(no_comment, _enabled_important);
+    case EPRule.matching_super_parameters:
+      return const Judgement(too_pedantic, _disabled);
+    case EPRule.missing_code_block_language_in_doc_comment:
+      return const Judgement(too_pedantic, _disabled);
+    case EPRule.no_literal_bool_comparisons:
+      return const Judgement(no_comment, _enabled_important);
+    case EPRule.no_self_assignments:
+      return const Judgement(no_comment, _enabled_important);
+    case EPRule.no_wildcard_variable_uses:
+      return const Judgement(too_pedantic, _disabled);
+    case EPRule.type_literal_in_constant_pattern:
+      return const Judgement(no_comment, _enabled_important);
+    case EPRule.unintended_html_in_doc_comment:
+      return const Judgement(too_pedantic, _disabled);
+    case EPRule.unnecessary_breaks:
+      return const Judgement(no_comment, _enabled_important);
+    case EPRule.unnecessary_library_name:
+      return const Judgement(too_pedantic, _disabled);
   }
 }
 
@@ -605,7 +641,6 @@ analyzer:
     # https://github.com/dart-lang/sdk/blob/main/tools/experimental_features.yaml
 
 linter:
-  # All rules: https://github.com/dart-lang/linter/blob/master/lib/src/rules.dart
   rules:""",
       for (final lint in lints) //
         <String>[

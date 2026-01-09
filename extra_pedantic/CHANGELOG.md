@@ -1,3 +1,12 @@
+## 5.0.0 (2026-01-09)
+- updated to Dart 3.5.0
+- added new rules: annotate_redeclares, avoid_unstable_final_fields, deprecated_member_use_from_same_package, invalid_runtime_check_with_js_interop_types, no_literal_bool_comparisons, no_self_assignments, no_wildcard_variable_uses, type_literal_in_constant_pattern, unnecessary_breaks, unnecessary_library_name
+- disabled use_colored_box (disturbs flow)
+- disabled use_string_buffers (too pedantic)
+- disabled prefer_collection_literals (too pedantic)
+- disabled avoid_init_to_null (too pedantic)
+- disabled comment_references (too pedantic)
+
 ## 4.0.0 (2023-07-01)
 - removed deprecated analyses
 - updated to linter 1.30.0 & Dart 2.19.0

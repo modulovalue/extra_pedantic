@@ -4,14 +4,29 @@ version: 1.0.0
 publish_to: none
 
 environment:
-  sdk: '>=2.19.0 <3.0.0'
+  sdk: '>=3.5.0 <4.0.0'
 
 dependencies:
   # To provide up-to-date information about officially supported lint rules
-  # TODO migrate to github.
-  linter: 1.30.0
+  linter:
+    git:
+      url: https://github.com/dart-lang/sdk.git
+      ref: 3.5.0
+      path: pkg/linter
 
 dev_dependencies:
   extra_pedantic:
     path: ../extra_pedantic
+
+dependency_overrides:
+  _fe_analyzer_shared:
+    git:
+      url: https://github.com/dart-lang/sdk.git
+      ref: 3.5.0
+      path: pkg/_fe_analyzer_shared
+  analyzer:
+    git:
+      url: https://github.com/dart-lang/sdk.git
+      ref: 3.5.0
+      path: pkg/analyzer
 

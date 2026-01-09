@@ -16,7 +16,7 @@ void main() {
   print(
     generate_readme(
       analysis_options: analysis_options_file,
-      current_version: "4.0.0",
+      current_version: "5.0.0",
     ),
   );
 }

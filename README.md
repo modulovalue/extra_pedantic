@@ -9,7 +9,7 @@ To use extra_pedantic:
 
 ```yaml
 dev_dependencies:
-  extra_pedantic: 4.0.0
+  extra_pedantic: 5.0.0
 ```
 
  * add this line to your `analysis_options.yaml` file:
@@ -27,127 +27,127 @@ Here is an overview of which lint rules are enabled and disabled:
 
 Rule Name | Status | Comment | Rule Description
 --- | --- | --- | ---
-always_declare_return_types | ✅ | No comment. | Declare method return types.
-annotate_overrides | ✅ | No comment. | Annotate overridden members.
-avoid_null_checks_in_equality_operators | ✅ | No comment. | Don't check for null in custom == operators.
-prefer_collection_literals | ✅ | No comment. | Use collection literals when possible.
-prefer_conditional_assignment | ✅ | No comment. | Prefer using `??=` over testing for null.
-prefer_final_fields | ✅ | No comment. | Private field could be final.
-prefer_for_elements_to_map_fromIterable | ✅ | No comment. | Prefer 'for' elements when building maps from iterables.
-prefer_generic_function_type_aliases | ✅ | No comment. | Prefer generic function type aliases.
-prefer_if_null_operators | ✅ | No comment. | Prefer using if null operators.
-prefer_spread_collections | ✅ | No comment. | Use spread collections when possible.
-use_function_type_syntax_for_parameters | ✅ | No comment. | Use generic function type syntax for parameters.
-avoid_empty_else | ✅ | No comment. | Avoid empty else statements.
-avoid_init_to_null | ✅ | No comment. | Don't explicitly initialize variables to null.
-avoid_relative_lib_imports | ✅ | No comment. | Avoid relative imports for files in `lib/`.
-avoid_return_types_on_setters | ✅ | No comment. | Avoid return types on setters.
-avoid_shadowing_type_parameters | ✅ | No comment. | Avoid shadowing type parameters.
-avoid_types_as_parameter_names | ✅ | No comment. | Avoid types as parameter names.
-curly_braces_in_flow_control_structures | ✅ | No comment. | DO use curly braces for all flow control structures.
-empty_catches | ✅ | No comment. | Avoid empty catch blocks.
-empty_constructor_bodies | ✅ | No comment. | Use `;` instead of `{}` for empty constructor bodies.
-library_names | ✅ | No comment. | Name libraries using `lowercase_with_underscores`.
-library_prefixes | ✅ | No comment. | Use `lowercase_with_underscores` when specifying a library prefix.
-no_duplicate_case_values | ✅ | No comment. | Don't use more than one case with same value.
-null_closures | ✅ | No comment. | Do not pass `null` as an argument where a closure is expected.
-prefer_contains | ✅ | No comment. | Use contains for `List` and `String` instances.
-prefer_equal_for_default_values | ✅ | No comment. | Use `=` to separate a named parameter from its default value.
-prefer_is_empty | ✅ | No comment. | Use `isEmpty` for Iterables and Maps.
-prefer_is_not_empty | ✅ | No comment. | Use `isNotEmpty` for Iterables and Maps.
-prefer_iterable_whereType | ✅ | No comment. | Prefer to use whereType on iterable.
-recursive_getters | ✅ | No comment. | Property getter recursively returns itself.
-slash_for_doc_comments | ✅ | No comment. | Prefer using /// for doc comments.
-type_init_formals | ✅ | No comment. | Don't type annotate initializing formals.
-unawaited_futures | ✅ | No comment. | `Future` results in `async` function bodies must be `await`ed or marked `unawaited` using `dart:async`.
-unnecessary_const | ✅ | No comment. | Avoid const keyword.
-unnecessary_new | ✅ | No comment. | Unnecessary new keyword.
-unnecessary_null_in_if_null_operators | ✅ | No comment. | Avoid using `null` in `if null` operators.
-unrelated_type_equality_checks | ✅ | No comment. | Equality operator `==` invocation with references of unrelated types.
-use_rethrow_when_possible | ✅ | No comment. | Use rethrow to rethrow a caught exception.
-valid_regexps | ✅ | No comment. | Use valid regular expression syntax.
-control_flow_in_finally | ✅ | No comment. | Avoid control flow in finally blocks.
-empty_statements | ✅ | No comment. | Avoid empty statements.
-prefer_final_locals | ✅ | No comment. | Prefer final for variable declarations if they are not reassigned.
-throw_in_finally | ✅ | No comment. | Avoid `throw` in finally block.
-await_only_futures | ✅ | No comment. | Await only futures.
-cancel_subscriptions | ✅ | No comment. | Cancel instances of dart.async.StreamSubscription.
-close_sinks | ✅ | No comment. | Close instances of `dart.core.Sink`.
-hash_and_equals | ✅ | No comment. | Always override `hashCode` if overriding `==`.
-implementation_imports | ✅ | No comment. | Don't import implementation files from another package.
-package_api_docs | ✅ | No comment. | Provide doc comments for all public APIs.
-package_names | ✅ | No comment. | Use `lowercase_with_underscores` for package names.
-package_prefixed_library_names | ✅ | No comment. | Prefix library names with the package name and a dot-separated path.
-test_types_in_equals | ✅ | No comment. | Test type arguments in operator ==(Object other).
-unnecessary_getters_setters | ✅ | No comment. | Avoid wrapping fields in getters and setters just to be "safe".
-void_checks | ✅ | No comment. | Don't assign to void.
-type_annotate_public_apis | ✅ | No comment. | Type annotate public APIs.
-avoid_slow_async_io | ✅ | No comment. | Avoid slow async `dart:io` methods.
+always_declare_return_types | ✅💪 | No comment. | Declare method return types.
+annotate_overrides | ✅💪 | No comment. | Annotate overridden members.
+avoid_null_checks_in_equality_operators | ✅💪 | No comment. | Don't check for `null` in custom `==` operators.
+prefer_collection_literals | ❌ | Too pedantic. | Use collection literals when possible.
+prefer_conditional_assignment | ✅💪 | No comment. | Prefer using `??=` over testing for `null`.
+prefer_final_fields | ✅💪 | No comment. | Private field could be `final`.
+prefer_for_elements_to_map_fromIterable | ✅💪 | No comment. | Prefer `for` elements when building maps from iterables.
+prefer_generic_function_type_aliases | ✅💪 | No comment. | Prefer generic function type aliases.
+prefer_if_null_operators | ✅💪 | No comment. | Prefer using `??` operators.
+prefer_spread_collections | ✅💪 | No comment. | Use spread collections when possible.
+use_function_type_syntax_for_parameters | ✅💪 | No comment. | Use generic function type syntax for parameters.
+avoid_empty_else | ✅💪 | No comment. | Avoid empty statements in else clauses.
+avoid_init_to_null | ❌ | Too pedantic. | Don't explicitly initialize variables to `null`.
+avoid_relative_lib_imports | ✅💪 | No comment. | Avoid relative imports for files in `lib/`.
+avoid_return_types_on_setters | ✅💪 | No comment. | Avoid return types on setters.
+avoid_shadowing_type_parameters | ✅💪 | No comment. | Avoid shadowing type parameters.
+avoid_types_as_parameter_names | ✅💪 | No comment. | Avoid types as parameter names.
+curly_braces_in_flow_control_structures | ✅💪 | No comment. | DO use curly braces for all flow control structures.
+empty_catches | ✅💪 | No comment. | Avoid empty catch blocks.
+empty_constructor_bodies | ✅💪 | No comment. | Use `;` instead of `{}` for empty constructor bodies.
+library_names | ✅💪 | No comment. | Name libraries using `lowercase_with_underscores`.
+library_prefixes | ✅💪 | No comment. | Use `lowercase_with_underscores` when specifying a library prefix.
+no_duplicate_case_values | ✅💪 | No comment. | Don't use more than one case with same value.
+null_closures | ✅💪 | No comment. | Do not pass `null` as an argument where a closure is expected.
+prefer_contains | ✅💪 | No comment. | Use contains for `List` and `String` instances.
+prefer_equal_for_default_values | ✅💪 | No comment. | Use `=` to separate a named parameter from its default value.
+prefer_is_empty | ✅💪 | No comment. | Use `isEmpty` for `Iterable`s and `Map`s.
+prefer_is_not_empty | ✅💪 | No comment. | Use `isNotEmpty` for `Iterable`s and `Map`s.
+prefer_iterable_whereType | ✅💪 | No comment. | Prefer to use `whereType` on iterable.
+recursive_getters | ✅💪 | No comment. | Property getter recursively returns itself.
+slash_for_doc_comments | ✅💪 | No comment. | Prefer using `///` for doc comments.
+type_init_formals | ✅💪 | No comment. | Don't type annotate initializing formals.
+unawaited_futures | ✅💪 | No comment. | `Future` results in `async` function bodies must be `await`ed or marked `unawaited` using `dart:async`.
+unnecessary_const | ✅💪 | No comment. | Avoid `const` keyword.
+unnecessary_new | ✅💪 | No comment. | Unnecessary new keyword.
+unnecessary_null_in_if_null_operators | ✅💪 | No comment. | Avoid using `null` in `??` operators.
+unrelated_type_equality_checks | ✅💪 | No comment. | Equality operator `==` invocation with references of unrelated types.
+use_rethrow_when_possible | ✅💪 | No comment. | Use rethrow to rethrow a caught exception.
+valid_regexps | ✅💪 | No comment. | Use valid regular expression syntax.
+control_flow_in_finally | ✅💪 | No comment. | Avoid control flow in `finally` blocks.
+empty_statements | ✅💪 | No comment. | Avoid empty statements.
+prefer_final_locals | ✅💪 | No comment. | Prefer final for variable declarations if they are not reassigned.
+throw_in_finally | ✅💪 | No comment. | Avoid `throw` in `finally` block.
+await_only_futures | ✅💪 | No comment. | Await only futures.
+cancel_subscriptions | ✅💪 | No comment. | Cancel instances of `dart:async` `StreamSubscription`.
+close_sinks | ✅💪 | No comment. | Close instances of `dart:core` `Sink`.
+hash_and_equals | ✅💪 | No comment. | Always override `hashCode` if overriding `==`.
+implementation_imports | ✅💪 | No comment. | Don't import implementation files from another package.
+package_api_docs | ✅💪 | No comment. | Provide doc comments for all public APIs.
+package_names | ✅💪 | No comment. | Use `lowercase_with_underscores` for package names.
+package_prefixed_library_names | ✅💪 | No comment. | Prefix library names with the package name and a dot-separated path.
+test_types_in_equals | ✅💪 | No comment. | Test type of argument in `operator ==(Object other)`.
+unnecessary_getters_setters | ✅💪 | No comment. | Avoid wrapping fields in getters and setters just to be "safe".
+void_checks | ✅💪 | No comment. | Don't assign to `void`.
+type_annotate_public_apis | ✅💪 | No comment. | Type annotate public APIs.
+avoid_slow_async_io | ✅💪 | No comment. | Avoid slow asynchronous `dart:io` methods.
 invariant_booleans | ❌ | Too many false positives. | Conditions should not unconditionally evaluate to `true` or to `false`.
-iterable_contains_unrelated_type | ✅ | No comment. | Invocation of Iterable<E>.contains with references of unrelated types.
-list_remove_unrelated_type | ✅ | No comment. | Invocation of `remove` with references of unrelated types.
-literal_only_boolean_expressions | ✅ | No comment. | Boolean expression composed only with literals.
-no_adjacent_strings_in_list | ✅ | No comment. | Don't use adjacent strings in list.
-directives_ordering | ✅ | No comment. | Adhere to Effective Dart Guide directives sorting conventions.
-only_throw_errors | ✅ | No comment. | Only throw instances of classes extending either Exception or Error.
-prefer_asserts_in_initializer_lists | ✅ | No comment. | Prefer putting asserts in initializer lists.
-prefer_const_constructors | ✅ | No comment. | Prefer const with constant constructors.
-prefer_const_constructors_in_immutables | ✅ | No comment. | Prefer declaring const constructors on `@immutable` classes.
-prefer_typing_uninitialized_variables | ✅ | No comment. | Prefer typing uninitialized variables and fields.
-unnecessary_null_aware_assignments | ✅ | No comment. | Avoid null in null-aware assignment.
-unnecessary_overrides | ✅ | No comment. | Don't override a method to do a super method invocation with the same parameters.
-use_string_buffers | ✅ | No comment. | Use string buffers to compose strings.
-use_full_hex_values_for_flutter_colors | ✅ | No comment. | Prefer an 8-digit hexadecimal integer(0xFFFFFFFF) to instantiate Color.
-prefer_inlined_adds | ✅ | No comment. | Inline list item declarations where possible.
-unnecessary_parenthesis | ✅ | No comment. | Unnecessary parentheses can be removed.
-prefer_const_declarations | ✅ | No comment. | Prefer const over final for declarations.
-prefer_null_aware_operators | ✅ | No comment. | Prefer using null aware operators.
-always_put_required_named_parameters_first | ✅ | No comment. | Put required named parameters first.
-avoid_catching_errors | ✅ | No comment. | Don't explicitly catch Error or types that implement it.
-avoid_double_and_int_checks | ✅ | No comment. | Avoid double and int checks.
-avoid_implementing_value_types | ✅ | No comment. | Don't implement classes that override `==`.
-avoid_js_rounded_ints | ✅ | No comment. | Avoid JavaScript rounded ints.
-avoid_returning_null_for_future | ✅ | No comment. | Avoid returning null for Future.
-avoid_returning_null_for_void | ✅ | No comment. | Avoid returning null for void.
-avoid_returning_this | ✅ | No comment. | Avoid returning this from methods just to enable a fluent interface.
-avoid_single_cascade_in_expression_statements | ✅ | No comment. | Avoid single cascade in expression statements.
-avoid_unused_constructor_parameters | ✅ | No comment. | Avoid defining unused parameters in constructors.
-avoid_void_async | ✅ | No comment. | Avoid async functions that return void.
-join_return_with_assignment | ✅ | No comment. | Join return statement with assignment when possible.
-parameter_assignments | ✅ | No comment. | Don't reassign references to parameters of functions or methods.
-prefer_final_in_for_each | ✅ | No comment. | Prefer final in for-each loop variable if reference is not reassigned.
-prefer_initializing_formals | ✅ | No comment. | Use initializing formals when possible.
-provide_deprecation_message | ✅ | No comment. | Provide a deprecation message, via @Deprecated("message").
-sort_pub_dependencies | ✅ | No comment. | Sort pub dependencies alphabetically.
-sort_unnamed_constructors_first | ✅ | No comment. | Sort unnamed constructor declarations first.
-unnecessary_await_in_return | ✅ | No comment. | Unnecessary await keyword in return.
-unsafe_html | ✅ | No comment. | Avoid unsafe HTML APIs.
-file_names | ✅ | No comment. | Name source files using `lowercase_with_underscores`.
-cast_nullable_to_non_nullable | ✅ | No comment. | Don't cast a nullable value to a non nullable type.
-exhaustive_cases | ✅ | No comment. | Define case clauses for all constants in enum-like classes.
-prefer_relative_imports | ✅ | No comment. | Prefer relative imports for files in `lib/`.
-tighten_type_of_initializing_formals | ✅ | No comment. | Tighten type of initializing formal.
-avoid_dynamic_calls | ✅ | No comment. | Avoid method calls or property accesses on a "dynamic" target.
-avoid_catches_without_on_clauses | ✅ | No comment. | Avoid catches without on clauses.
-avoid_type_to_string | ✅ | No comment. | Avoid <Type>.toString() in production code since results may be minified.
-avoid_web_libraries_in_flutter | ✅ | No comment. | Avoid using web-only libraries outside Flutter web plugin packages.
-no_default_cases | ✅ | No comment. | No default cases.
-no_logic_in_create_state | ✅ | No comment. | Don't put any logic in createState.
-overridden_fields | ✅ | No comment. | Don't override fields.
-prefer_asserts_with_message | ✅ | No comment. | Prefer asserts with message.
-prefer_mixin | ✅ | No comment. | Prefer using mixins.
-prefer_null_aware_method_calls | ✅ | No comment. | Prefer null aware method calls.
-sized_box_for_whitespace | ❌ | Disabled because this rule decreases productivity by disturbing flow. | SizedBox for whitespace.
-unnecessary_nullable_for_final_variable_declarations | ✅ | No comment. | Use a non-nullable type for a final variable initialized with a non-nullable value.
-unnecessary_statements | ✅ | No comment. | Avoid using unnecessary statements.
-use_build_context_synchronously | ✅ | No comment. | Do not use BuildContexts across async gaps.
-use_is_even_rather_than_modulo | ✅ | No comment. | Prefer intValue.isOdd/isEven instead of checking the result of % 2.
-comment_references | ✅ | No comment. | Only reference in scope identifiers in doc comments.
-noop_primitive_operations | ✅ | No comment. | Noop primitive operations.
-prefer_final_parameters | ✅ | This makes it easier to refactor code. | Prefer final for parameter declarations if they are not reassigned.
+iterable_contains_unrelated_type | ✅💪 | No comment. | Invocation of `Iterable<E>.contains` with references of unrelated types.
+list_remove_unrelated_type | ✅💪 | No comment. | Invocation of `remove` with references of unrelated types.
+literal_only_boolean_expressions | ✅💪 | No comment. | Boolean expression composed only with literals.
+no_adjacent_strings_in_list | ✅💪 | No comment. | Don't use adjacent strings in list.
+directives_ordering | ✅💪 | No comment. | Adhere to Effective Dart Guide directives sorting conventions.
+only_throw_errors | ✅💪 | No comment. | Only throw instances of classes extending either Exception or Error.
+prefer_asserts_in_initializer_lists | ✅💪 | No comment. | Prefer putting asserts in initializer lists.
+prefer_const_constructors | ✅💪 | No comment. | Prefer `const` with constant constructors.
+prefer_const_constructors_in_immutables | ✅💪 | No comment. | Prefer declaring `const` constructors on `@immutable` classes.
+prefer_typing_uninitialized_variables | ✅💪 | No comment. | Prefer typing uninitialized variables and fields.
+unnecessary_null_aware_assignments | ✅💪 | No comment. | Avoid `null` in `null`-aware assignment.
+unnecessary_overrides | ✅💪 | No comment. | Don't override a method to do a super method invocation with the same parameters.
+use_string_buffers | ❌ | Too pedantic. | Use string buffers to compose strings.
+use_full_hex_values_for_flutter_colors | ✅💪 | No comment. | Prefer an 8-digit hexadecimal integer(0xFFFFFFFF) to instantiate Color.
+prefer_inlined_adds | ✅💪 | No comment. | Inline list item declarations where possible.
+unnecessary_parenthesis | ✅💪 | No comment. | Unnecessary parentheses can be removed.
+prefer_const_declarations | ✅💪 | No comment. | Prefer `const` over `final` for declarations.
+prefer_null_aware_operators | ✅💪 | No comment. | Prefer using `null`-aware operators.
+always_put_required_named_parameters_first | ✅💪 | No comment. | Put required named parameters first.
+avoid_catching_errors | ✅💪 | No comment. | Don't explicitly catch `Error` or types that implement it.
+avoid_double_and_int_checks | ✅💪 | No comment. | Avoid `double` and `int` checks.
+avoid_implementing_value_types | ✅💪 | No comment. | Don't implement classes that override `==`.
+avoid_js_rounded_ints | ✅💪 | No comment. | Avoid JavaScript rounded ints.
+avoid_returning_null_for_future | ✅💪 | No comment. | Avoid returning null for Future.
+avoid_returning_null_for_void | ✅💪 | No comment. | Avoid returning `null` for `void`.
+avoid_returning_this | ✅💪 | No comment. | Avoid returning this from methods just to enable a fluent interface.
+avoid_single_cascade_in_expression_statements | ✅💪 | No comment. | Avoid single cascade in expression statements.
+avoid_unused_constructor_parameters | ✅💪 | No comment. | Avoid defining unused parameters in constructors.
+avoid_void_async | ✅💪 | No comment. | Avoid `async` functions that return `void`.
+join_return_with_assignment | ✅💪 | No comment. | Join return statement with assignment when possible.
+parameter_assignments | ✅💪 | No comment. | Don't reassign references to parameters of functions or methods.
+prefer_final_in_for_each | ✅💪 | No comment. | Prefer final in for-each loop variable if reference is not reassigned.
+prefer_initializing_formals | ✅💪 | No comment. | Use initializing formals when possible.
+provide_deprecation_message | ✅💪 | No comment. | Provide a deprecation message, via `@Deprecated("message")`.
+sort_pub_dependencies | ✅💪 | No comment. | Sort pub dependencies alphabetically.
+sort_unnamed_constructors_first | ✅💪 | No comment. | Sort unnamed constructor declarations first.
+unnecessary_await_in_return | ✅💪 | No comment. | Unnecessary `await` keyword in return.
+unsafe_html | ✅💪 | No comment. | Avoid unsafe HTML APIs.
+file_names | ✅💪 | No comment. | Name source files using `lowercase_with_underscores`.
+cast_nullable_to_non_nullable | ✅💪 | No comment. | Don't cast a nullable value to a non nullable type.
+exhaustive_cases | ✅💪 | No comment. | Define case clauses for all constants in enum-like classes.
+prefer_relative_imports | ✅💪 | No comment. | Prefer relative imports for files in `lib/`.
+tighten_type_of_initializing_formals | ✅💪 | No comment. | Tighten type of initializing formal.
+avoid_dynamic_calls | ✅💪 | No comment. | Avoid method calls or property accesses on a `dynamic` target.
+avoid_catches_without_on_clauses | ✅💪 | No comment. | Avoid catches without on clauses.
+avoid_type_to_string | ✅💪 | No comment. | Avoid <Type>.toString() in production code since results may be minified.
+avoid_web_libraries_in_flutter | ✅💪 | No comment. | Avoid using web-only libraries outside Flutter web plugin packages.
+no_default_cases | ✅💪 | No comment. | No default cases.
+no_logic_in_create_state | ✅💪 | No comment. | Don't put any logic in createState.
+overridden_fields | ✅💪 | No comment. | Don't override fields.
+prefer_asserts_with_message | ✅💪 | No comment. | Prefer asserts with message.
+prefer_mixin | ✅💪 | No comment. | Prefer using mixins.
+prefer_null_aware_method_calls | ✅💪 | No comment. | Prefer `null`-aware method calls.
+sized_box_for_whitespace | ❌ | Disabled because this rule decreases productivity by disturbing flow. | `SizedBox` for whitespace.
+unnecessary_nullable_for_final_variable_declarations | ✅💪 | No comment. | Use a non-nullable type for a final variable initialized with a non-nullable value.
+unnecessary_statements | ✅💪 | No comment. | Avoid using unnecessary statements.
+use_build_context_synchronously | ✅💪 | No comment. | Do not use `BuildContext` across asynchronous gaps.
+use_is_even_rather_than_modulo | ✅💪 | No comment. | Prefer intValue.isOdd/isEven instead of checking the result of % 2.
+comment_references | ❌ | Too pedantic. | Only reference in scope identifiers in doc comments.
+noop_primitive_operations | ✅💪 | No comment. | Noop primitive operations.
+prefer_final_parameters | ✅💪 | This makes it easier to refactor code. | Prefer final for parameter declarations if they are not reassigned.
 avoid_multiple_declarations_per_line | ❌ | Has false positives. | Don't declare multiple variables on a single line.
 avoid_private_typedef_functions | ❌ | Too pedantic. | Avoid private typedef functions.
-avoid_final_parameters | ❌ | No comment. | Avoid final for parameter declarations.
+avoid_final_parameters | ❌ | No comment. | Avoid `final` for parameter declarations.
 avoid_returning_null | ❌ | Obsolete because of NNBD. | Avoid returning null from members whose return type is bool, double, int, or num.
 prefer_if_elements_to_conditional_expressions | ❌ | Disabled because this rule decreases productivity by disturbing flow. | Prefer if elements to conditional expressions where possible.
 prefer_foreach | ❌ | Disabled because this rule decreases productivity by disturbing flow. | Use `forEach` to only apply a function to all the elements.
@@ -166,8 +166,8 @@ use_to_and_as_if_applicable | ❌ | Too pedantic. | Start the name of the method
 sort_child_properties_last | ❌ | Too pedantic. | Sort child properties last in widget instance creations.
 prefer_function_declarations_over_variables | ❌ | With variables, the return type can be omitted safely which is useful in FP-style code. | Use a function declaration to bind a function to a name.
 always_use_package_imports | ❌ | Prefer relative imports | Avoid relative imports for files in `lib/`.
-avoid_annotating_with_dynamic | ❌ | It is better to always be explicit about dynamic. | Avoid annotating with dynamic when not required.
-avoid_bool_literals_in_conditional_expressions | ❌ | bool literals in conditional expressions make it easier to reason about them. X ? Y : Z is easier for humans than e.g. X || Z | Avoid bool literals in conditional expressions.
+avoid_annotating_with_dynamic | ❌ | It is better to always be explicit about dynamic. | Avoid annotating with `dynamic` when not required.
+avoid_bool_literals_in_conditional_expressions | ❌ | bool literals in conditional expressions make it easier to reason about them. X ? Y : Z is easier for humans than e.g. X || Z | Avoid `bool` literals in conditional expressions.
 avoid_classes_with_only_static_members | ❌ | Classes with static members don't pollute the global namespace. | Avoid defining a class that contains only static members.
 avoid_escaping_inner_quotes | ❌ | Too pedantic. | Avoid escaping inner quotes by converting surrounding quotes.
 avoid_function_literals_in_foreach_calls | ❌ | Disabled because this rule decreases productivity by disturbing flow. | Avoid using `forEach` with a function literal.
@@ -191,7 +191,7 @@ library_private_types_in_public_api | ❌ | Too pedantic. | Avoid using private 
 lines_longer_than_80_chars | ❌ | Too pedantic. | Avoid lines longer than 80 characters.
 missing_whitespace_between_adjacent_strings | ❌ | Too pedantic. | Missing whitespace between adjacent strings.
 non_constant_identifier_names | ❌ | Too pedantic. | Name non-constant identifiers using lowerCamelCase.
-no_runtimeType_toString | ❌ | Too pedantic. | Avoid calling toString() on runtimeType.
+no_runtimeType_toString | ❌ | Too pedantic. | Avoid calling `toString()` on `runtimeType`.
 one_member_abstracts | ❌ | Too pedantic. | Avoid defining a one-member abstract class when a simple function will do.
 prefer_const_literals_to_create_immutables | ❌ | Too pedantic. | Prefer const literals as parameters of constructors on @immutable classes.
 prefer_constructors_over_static_methods | ❌ | Too pedantic. | Prefer defining constructors instead of static methods to create instances.
@@ -206,50 +206,72 @@ super_goes_last | ❌ | Deprecated | Place the `super` call last in a constructo
 unnecessary_brace_in_string_interps | ❌ | Too pedantic. | Avoid using braces in interpolation when not needed.
 unnecessary_final | ❌ | final tells the reader 'This variable won't be mutated.' | Don't use `final` for local variables.
 unnecessary_lambdas | ❌ | In rare cases it is possible for this to introduce bugs. | Don't create a lambda when a tear-off will do.
-unnecessary_null_checks | ❌ | Too pedantic. | Unnecessary null checks.
+unnecessary_null_checks | ❌ | Too pedantic. | Unnecessary `null` checks.
 unnecessary_raw_strings | ❌ | Too pedantic. | Unnecessary raw string.
 unnecessary_string_escapes | ❌ | Too pedantic. | Remove unnecessary backslashes in strings.
 unnecessary_string_interpolations | ❌ | Too pedantic. | Unnecessary string interpolation.
-use_if_null_to_convert_nulls_to_bools | ❌ | Too pedantic. | Use if-null operators to convert nulls to bools.
+use_if_null_to_convert_nulls_to_bools | ❌ | Too pedantic. | Use `??` operators to convert `null`s to `bool`s.
 use_key_in_widget_constructors | ❌ | Too pedantic. | Use key in widget constructors.
 use_late_for_private_fields_and_variables | ❌ | Too pedantic. | Use late for private members with a non-nullable type.
 use_named_constants | ❌ | There could be multiple constants with the same value but different identifiers. | Use predefined named constants.
 use_raw_strings | ❌ | Too pedantic. | Use raw string to avoid escapes.
 use_setters_to_change_properties | ❌ | Too pedantic. | Use a setter for operations that conceptually change a property.
-null_check_on_nullable_type_parameter | ❌ | Too many false positives. | Don't use null check on a potentially nullable type parameter.
-require_trailing_commas | ❌ | Too pedantic. | Use trailing commas for all function calls and declarations.
+null_check_on_nullable_type_parameter | ❌ | Too many false positives. | Don't use `null` check on a potentially nullable type parameter.
+require_trailing_commas | ❌ | Too pedantic. | Use trailing commas for all parameter lists and argument lists.
 avoid_field_initializers_in_const_classes | ❌ | Too pedantic. | Avoid field initializers in const classes.
-conditional_uri_does_not_exist | ✅ | No comment. | Missing conditional import.
+conditional_uri_does_not_exist | ✅💪 | No comment. | Missing conditional import.
 depend_on_referenced_packages | ❌ | Disabled because this rule decreases productivity by disturbing flow. | Depend on referenced packages.
 eol_at_end_of_file | ❌ | Too pedantic. | Put a single newline at end of file.
 no_leading_underscores_for_library_prefixes | ❌ | Too pedantic. | Avoid leading underscores for library prefixes.
 no_leading_underscores_for_local_identifiers | ❌ | Too pedantic. | Avoid leading underscores for local identifiers.
-secure_pubspec_urls | ✅ | No comment. | Use secure urls in `pubspec.yaml`.
+secure_pubspec_urls | ✅💪 | No comment. | Use secure urls in `pubspec.yaml`.
 sized_box_shrink_expand | ❌ | Disabled because this rule decreases productivity by disturbing flow. | Use SizedBox shrink and expand named constructors.
-unnecessary_constructor_name | ✅ | No comment. | Unnecessary `.new` constructor name.
-unnecessary_late | ✅ | No comment. | Don't specify the `late` modifier when it is not needed.
+unnecessary_constructor_name | ✅💪 | No comment. | Unnecessary `.new` constructor name.
+unnecessary_late | ✅💪 | No comment. | Don't specify the `late` modifier when it is not needed.
 use_decorated_box | ❌ | Disabled because this rule decreases productivity by disturbing flow. | Use `DecoratedBox`.
 use_test_throws_matchers | ❌ | Too pedantic. | Use throwsA matcher instead of fail().
-use_colored_box | ✅ | No comment. | Use `ColoredBox`.
-use_enums | ✅ | No comment. | Use enums rather than classes that behave like enums.
+use_colored_box | ❌ | Disabled because this rule decreases productivity by disturbing flow. | Use `ColoredBox`.
+use_enums | ✅💪 | No comment. | Use enums rather than classes that behave like enums.
 use_super_parameters | ❌ | Super parameters make inheritance more convenient, but inheritance should be avoided and composition should be preferred. Even if you need inheritance, you should declare an interface and mixins, and not use super constructors. | Use super-initializer parameters where possible.
 unnecessary_library_directive | ❌ | Too pedantic. | Avoid library directives unless they have documentation comments or annotations.
-collection_methods_unrelated_type | ✅ | No comment. | Invocation of various collection methods with arguments of unrelated types.
+collection_methods_unrelated_type | ✅💪 | No comment. | Invocation of various collection methods with arguments of unrelated types.
 combinators_ordering | ❌ | Too pedantic. | Sort combinator names alphabetically.
 dangling_library_doc_comments | ❌ | Too pedantic. | Attach library doc comments to library directives.
-discarded_futures | ✅ | No comment. | Don't invoke asynchronous functions in non-async blocks.
-implicit_call_tearoffs | ✅ | No comment. | Explicitly tear-off `call` methods when using an object as a Function.
+discarded_futures | ✅💪 | No comment. | Don't invoke asynchronous functions in non-`async` blocks.
+implicit_call_tearoffs | ✅💪 | No comment. | Explicitly tear-off `call` methods when using an object as a Function.
 library_annotations | ❌ | Too pedantic. | Attach library annotations to library directives.
-unnecessary_null_aware_operator_on_extension_on_nullable | ✅ | No comment. | Unnecessary null aware operator on extension on a nullable type.
-unnecessary_to_list_in_spreads | ✅ | No comment. | Unnecessary toList() in spreads.
+unnecessary_null_aware_operator_on_extension_on_nullable | ✅💪 | No comment. | Unnecessary null aware operator on extension on a nullable type.
+unnecessary_to_list_in_spreads | ✅💪 | No comment. | Unnecessary `toList()` in spreads.
 unreachable_from_main | ❌ | Too pedantic. | Unreachable top-level members in executable libraries.
-use_string_in_part_of_directives | ✅ | No comment. | Use string in part of directives.
+use_string_in_part_of_directives | ✅💪 | No comment. | Use string in part of directives.
+annotate_redeclares | ✅💪 | No comment. | Annotate redeclared members.
+avoid_unstable_final_fields | ✅💪 | No comment. | Avoid overriding a final field to return different values if called multiple times.
+deprecated_member_use_from_same_package | ✅💪 | No comment. | Avoid using deprecated elements from within the package in which they are declared.
+document_ignores | ❌ | Too pedantic. | Document ignore comments.
+enable_null_safety | ❌ | Obsolete because of NNBD. | Do use sound null safety.
+erase_dart_type_extension_types | ❌ | Experimental. | Don't do 'is' checks on DartTypes.
+implicit_reopen | ❌ | Experimental. | Don't implicitly reopen classes.
+invalid_case_patterns | ❌ | Experimental. | Use case expressions that are valid in Dart 3.0.
+invalid_runtime_check_with_js_interop_types | ✅💪 | No comment. | Avoid runtime type tests with JS interop types where the result may not
+    be platform-consistent.
+matching_super_parameters | ❌ | Too pedantic. | Use matching super parameter names.
+missing_code_block_language_in_doc_comment | ❌ | Too pedantic. | A code block is missing a specified language.
+no_literal_bool_comparisons | ✅💪 | No comment. | Don't compare booleans to boolean literals.
+no_self_assignments | ✅💪 | No comment. | Don't assign a variable to itself.
+no_wildcard_variable_uses | ❌ | Too pedantic. | Don't use wildcard parameters or variables.
+type_literal_in_constant_pattern | ✅💪 | No comment. | Don't use constant patterns with type literals.
+unintended_html_in_doc_comment | ❌ | Too pedantic. | Use of angle brackets in a doc comment is treated as HTML by Markdown.
+unnecessary_breaks | ✅💪 | No comment. | Don't use explicit `break`s when a break is implied.
+unnecessary_library_name | ❌ | Too pedantic. | Don't have a library name in a `library` declaration.
 
 
 And here's the whole analysis options file:
 ```yaml
 # ===============================================================
 # ======= This file was generated by extra_pedantic_extra =======
+# ===============================================================
+# === options:
+# ===  * only_essential: false
 # ===============================================================
 analyzer:
   # strong-mode:
@@ -260,17 +282,15 @@ analyzer:
     # https://github.com/dart-lang/language/tree/master/resources/type-system
     strict-inference: true
     strict-raw-types: true
-    strict-casts: true
+    strict-casts: true 
   # enable-experiment:
     # https://github.com/dart-lang/sdk/blob/main/tools/experimental_features.yaml
 
 linter:
-  # All rules: https://github.com/dart-lang/linter/blob/master/lib/src/rules.dart
   rules:
-    - unnecessary_parenthesis # No comment.
+    - avoid_implementing_value_types # No comment.
     - annotate_overrides # No comment.
     - avoid_null_checks_in_equality_operators # No comment.
-    - prefer_collection_literals # No comment.
     - prefer_conditional_assignment # No comment.
     - prefer_final_fields # No comment.
     - prefer_for_elements_to_map_fromIterable # No comment.
@@ -279,7 +299,6 @@ linter:
     - prefer_spread_collections # No comment.
     - use_function_type_syntax_for_parameters # No comment.
     - avoid_empty_else # No comment.
-    - avoid_init_to_null # No comment.
     - avoid_relative_lib_imports # No comment.
     - avoid_return_types_on_setters # No comment.
     - avoid_shadowing_type_parameters # No comment.
@@ -335,16 +354,15 @@ linter:
     - prefer_typing_uninitialized_variables # No comment.
     - unnecessary_null_aware_assignments # No comment.
     - unnecessary_overrides # No comment.
-    - use_string_buffers # No comment.
     - use_full_hex_values_for_flutter_colors # No comment.
     - prefer_inlined_adds # No comment.
-    - always_declare_return_types # No comment.
+    - unnecessary_parenthesis # No comment.
     - prefer_const_declarations # No comment.
     - prefer_null_aware_operators # No comment.
     - always_put_required_named_parameters_first # No comment.
     - avoid_catching_errors # No comment.
     - avoid_double_and_int_checks # No comment.
-    - avoid_implementing_value_types # No comment.
+    - always_declare_return_types # No comment.
     - avoid_js_rounded_ints # No comment.
     - avoid_returning_null_for_future # No comment.
     - avoid_returning_null_for_void # No comment.
@@ -380,24 +398,27 @@ linter:
     - unnecessary_statements # No comment.
     - use_build_context_synchronously # No comment.
     - use_is_even_rather_than_modulo # No comment.
-    - comment_references # No comment.
     - noop_primitive_operations # No comment.
     - prefer_final_parameters # This makes it easier to refactor code.
-    - unnecessary_null_aware_operator_on_extension_on_nullable # No comment.
+    - unnecessary_breaks # No comment.
+    - no_self_assignments # No comment.
+    - no_literal_bool_comparisons # No comment.
+    - deprecated_member_use_from_same_package # No comment.
+    - invalid_runtime_check_with_js_interop_types # No comment.
+    - type_literal_in_constant_pattern # No comment.
+    - avoid_unstable_final_fields # No comment.
+    - annotate_redeclares # No comment.
+    - use_string_in_part_of_directives # No comment.
     - unnecessary_to_list_in_spreads # No comment.
+    - unnecessary_null_aware_operator_on_extension_on_nullable # No comment.
     - implicit_call_tearoffs # No comment.
     - discarded_futures # No comment.
     - collection_methods_unrelated_type # No comment.
     - use_enums # No comment.
-    - use_colored_box # No comment.
     - unnecessary_late # No comment.
     - unnecessary_constructor_name # No comment.
     - secure_pubspec_urls # No comment.
     - conditional_uri_does_not_exist # No comment.
-    - use_string_in_part_of_directives # No comment.
-    # - prefer_adjacent_string_concatenation # No comment.
-    # - prefer_single_quotes # Too pedantic.
-    # - always_put_control_body_on_new_line # Too pedantic.
     # - always_specify_types # Too pedantic.
     # - avoid_as # Too pedantic.
     # - unnecessary_this # Too many false positives.
@@ -411,7 +432,7 @@ linter:
     # - avoid_classes_with_only_static_members # Classes with static members don't pollute the global namespace.
     # - avoid_escaping_inner_quotes # Too pedantic.
     # - avoid_function_literals_in_foreach_calls # Disabled because this rule decreases productivity by disturbing flow.
-    # - omit_local_variable_types # Too pedantic.
+    # - avoid_equals_and_hash_code_on_mutable_classes # @immutable depends on meta.
     # - avoid_positional_boolean_parameters # Too pedantic.
     # - avoid_print # Too pedantic.
     # - avoid_redundant_argument_values # Too pedantic.
@@ -423,7 +444,7 @@ linter:
     # - cascade_invocations # Too pedantic.
     # - constant_identifier_names # Too pedantic.
     # - deprecated_consistency # Too pedantic.
-    # - diagnostic_describe_all_properties # Too pedantic.
+    # - unnecessary_library_name # Too pedantic.
     # - flutter_style_todos # Too pedantic.
     # - do_not_use_environment # Too pedantic.
     # - leading_newlines_in_multiline_strings # Too pedantic.
@@ -459,29 +480,47 @@ linter:
     # - null_check_on_nullable_type_parameter # Too many false positives.
     # - require_trailing_commas # Too pedantic.
     # - avoid_field_initializers_in_const_classes # Too pedantic.
-    # - camel_case_extensions # Disabled because an underscore is useful to represent domains in generated code.
+    # - always_put_control_body_on_new_line # Too pedantic.
     # - depend_on_referenced_packages # Disabled because this rule decreases productivity by disturbing flow.
     # - eol_at_end_of_file # Too pedantic.
     # - no_leading_underscores_for_library_prefixes # Too pedantic.
     # - no_leading_underscores_for_local_identifiers # Too pedantic.
-    # - prefer_void_to_null # Obsolete because of NNBD.
+    # - prefer_single_quotes # Too pedantic.
     # - sized_box_shrink_expand # Disabled because this rule decreases productivity by disturbing flow.
-    # - always_require_non_null_named_parameters # Obsolete because of NNBD.
-    # - prefer_foreach # Disabled because this rule decreases productivity by disturbing flow.
+    # - prefer_adjacent_string_concatenation # No comment.
+    # - omit_local_variable_types # Too pedantic.
     # - use_decorated_box # Disabled because this rule decreases productivity by disturbing flow.
     # - use_test_throws_matchers # Too pedantic.
-    # - prefer_if_elements_to_conditional_expressions # Disabled because this rule decreases productivity by disturbing flow.
-    # - avoid_returning_null # Obsolete because of NNBD.
+    # - use_colored_box # Disabled because this rule decreases productivity by disturbing flow.
+    # - camel_case_extensions # Disabled because an underscore is useful to represent domains in generated code.
     # - use_super_parameters # Super parameters make inheritance more convenient, but inheritance should be avoided and composition should be preferred. Even if you need inheritance, you should declare an interface and mixins, and not use super constructors.
     # - unnecessary_library_directive # Too pedantic.
-    # - avoid_final_parameters # No comment.
+    # - prefer_void_to_null # Obsolete because of NNBD.
     # - combinators_ordering # Too pedantic.
     # - dangling_library_doc_comments # Too pedantic.
+    # - always_require_non_null_named_parameters # Obsolete because of NNBD.
+    # - prefer_foreach # Disabled because this rule decreases productivity by disturbing flow.
+    # - library_annotations # Too pedantic.
+    # - prefer_if_elements_to_conditional_expressions # Disabled because this rule decreases productivity by disturbing flow.
+    # - avoid_returning_null # Obsolete because of NNBD.
+    # - unreachable_from_main # Too pedantic.
+    # - avoid_final_parameters # No comment.
     # - avoid_private_typedef_functions # Too pedantic.
     # - avoid_multiple_declarations_per_line # Has false positives.
-    # - library_annotations # Too pedantic.
+    # - comment_references # Too pedantic.
+    # - document_ignores # Too pedantic.
+    # - enable_null_safety # Obsolete because of NNBD.
+    # - erase_dart_type_extension_types # Experimental.
+    # - implicit_reopen # Experimental.
+    # - invalid_case_patterns # Experimental.
     # - sized_box_for_whitespace # Disabled because this rule decreases productivity by disturbing flow.
+    # - matching_super_parameters # Too pedantic.
+    # - missing_code_block_language_in_doc_comment # Too pedantic.
+    # - use_string_buffers # Too pedantic.
     # - invariant_booleans # Too many false positives.
-    # - unreachable_from_main # Too pedantic.
-    # - avoid_equals_and_hash_code_on_mutable_classes # @immutable depends on meta.
+    # - no_wildcard_variable_uses # Too pedantic.
+    # - avoid_init_to_null # Too pedantic.
+    # - unintended_html_in_doc_comment # Too pedantic.
+    # - prefer_collection_literals # Too pedantic.
+    # - diagnostic_describe_all_properties # Too pedantic.
 ```
