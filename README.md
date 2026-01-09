@@ -252,8 +252,7 @@ enable_null_safety | ❌ | Obsolete because of NNBD. | Do use sound null safety.
 erase_dart_type_extension_types | ❌ | Experimental. | Don't do 'is' checks on DartTypes.
 implicit_reopen | ❌ | Experimental. | Don't implicitly reopen classes.
 invalid_case_patterns | ❌ | Experimental. | Use case expressions that are valid in Dart 3.0.
-invalid_runtime_check_with_js_interop_types | ✅💪 | No comment. | Avoid runtime type tests with JS interop types where the result may not
-    be platform-consistent.
+invalid_runtime_check_with_js_interop_types | ✅💪 | No comment. | Avoid runtime type tests with JS interop types where the result may not be platform-consistent.
 matching_super_parameters | ❌ | Too pedantic. | Use matching super parameter names.
 missing_code_block_language_in_doc_comment | ❌ | Too pedantic. | A code block is missing a specified language.
 no_literal_bool_comparisons | ✅💪 | No comment. | Don't compare booleans to boolean literals.

@@ -59,7 +59,8 @@ ${<List<String>>[
               },
             ),
             comment_description(x.judgement.comment),
-            all_linter_rules_map()[official_name]!.description,
+            // https://github.com/dart-lang/sdk/issues/62378
+            all_linter_rules_map()[official_name]!.description.replaceAll(RegExp(r'\s+'), ' '),
           ];
         }(),
     ].map((final a) => a.join(" | ")).join("\n")}
