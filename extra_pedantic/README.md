@@ -9,7 +9,7 @@ To use extra_pedantic:
 
 ```yaml
 dev_dependencies:
-  extra_pedantic: 6.0.0
+  extra_pedantic: 6.0.1
 ```
 
  * add this line to your `analysis_options.yaml` file:

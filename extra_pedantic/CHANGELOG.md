@@ -1,3 +1,6 @@
+## 6.0.1 (2026-11-06)
+- added an example
+
 ## 6.0.0 (2026-11-06)
 - requires Dart 3.13.0
 - updated the generator to the Dart 3.13.7 linter
