@@ -1,6 +1,7 @@
 // ignore_for_file: implementation_imports
 
-import 'package:linter/src/analyzer.dart';
+import 'package:analyzer/src/analysis_rule/analysis_rule.dart';
+import 'package:analyzer/src/lint/registry.dart';
 import 'package:linter/src/rules.dart';
 
 import 'generate.dart';
@@ -22,7 +23,7 @@ List<JudgedAndIdentified> judged_and_identified_rules() {
       final id = convert_ep_rule_to_analysis_options_lint_rule_id(
         rule: rule.lint_rule,
       );
-      final detected_lint_rule = _official_rule_index[id];
+      final detected_lint_rule = _official_rule_index[id.toLowerCase()];
       if (detected_lint_rule == null) {
         throw Exception("Unknown rule " + id);
       } else {
@@ -39,20 +40,20 @@ List<JudgedAndIdentified> judged_and_identified_rules() {
 /// Extracts all lint rules from the dart linter rules.dart file.
 Iterable<String> all_linter_rules() => all_linter_rules_map().keys;
 
-Map<String, LintRule> all_linter_rules_map() => _official_rule_index;
+Map<String, AbstractAnalysisRule> all_linter_rules_map() => _official_rule_index;
 
 final _official_rule_index = () {
   registerLintRules();
-  final map = <String, LintRule>{};
-  for (final rule in Analyzer.facade.registeredRules) {
-    map[rule.name] = rule;
+  final map = <String, AbstractAnalysisRule>{};
+  for (final rule in Registry.ruleRegistry.rules) {
+    map[rule.name.toLowerCase()] = rule;
   }
   return map;
 }();
 
 class JudgedAndIdentified {
   final JudgedRule judged_rule;
-  final LintRule identified_rule;
+  final AbstractAnalysisRule identified_rule;
 
   const JudgedAndIdentified(
     this.judged_rule,

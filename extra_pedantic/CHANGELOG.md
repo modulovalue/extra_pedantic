@@ -1,3 +1,17 @@
+## 6.0.0 (2026-11-06)
+- requires Dart 3.13.0
+- updated the generator to the Dart 3.13.7 linter
+- added new rules: async_return_with_no_await, no_dynamic_casts, no_raw_types, remove_deprecations_in_breaking_versions, simple_directive_paths, strict_top_level_inference, switch_on_type, use_truncating_division
+- replaced the strict-casts and strict-raw-types analyzer options with the no_dynamic_casts and no_raw_types rules
+- judged and disabled new rules: avoid_futureor_void, empty_container_bodies, initialize_in_field_declaration, migrate_design_widgets, omit_obvious_local_variable_types, omit_obvious_property_types, simplify_variable_pattern, specify_nonobvious_local_variable_types, specify_nonobvious_property_types, unnecessary_async, unnecessary_const_in_enum_constructor, unnecessary_ignore, unnecessary_primary_constructor_body, unnecessary_type_name_in_constructor, unnecessary_unawaited, unnecessary_underscores, unsafe_variance, use_declaring_parameters, use_null_aware_elements, use_primary_constructors, var_with_no_type_annotation
+- removed rules that were removed from the linter: avoid_returning_null_for_future, avoid_unstable_final_fields, iterable_contains_unrelated_type, list_remove_unrelated_type (covered by collection_methods_unrelated_type), package_api_docs, prefer_equal_for_default_values, unsafe_html
+- removed deprecated rules: avoid_null_checks_in_equality_operators, prefer_final_parameters (final parameters are a compile error since Dart 3.13), unnecessary_await_in_return
+- dropped disabled entries that are removed, deprecated or internal: always_require_non_null_named_parameters, avoid_as, avoid_private_typedef_functions, avoid_returning_null, enable_null_safety, erase_dart_type_extension_types, invariant_booleans, one_member_abstracts, prefer_bool_in_asserts, super_goes_last, use_if_null_to_convert_nulls_to_bools
+- renamed to the official lowercase names: no_runtimetype_tostring, prefer_for_elements_to_map_fromiterable, prefer_iterable_wheretype
+- disabled directives_ordering (adds churn without catching bugs)
+- the generated file now lists rules in a deterministic order
+- the generator now writes the options files, both READMEs and the pubspec version itself
+
 ## 5.0.0 (2026-01-09)
 - updated to Dart 3.5.0
 - added new rules: annotate_redeclares, avoid_unstable_final_fields, deprecated_member_use_from_same_package, invalid_runtime_check_with_js_interop_types, no_literal_bool_comparisons, no_self_assignments, no_wildcard_variable_uses, type_literal_in_constant_pattern, unnecessary_breaks, unnecessary_library_name

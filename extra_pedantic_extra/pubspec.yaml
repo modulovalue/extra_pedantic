@@ -11,7 +11,7 @@ dependencies:
   linter:
     git:
       url: https://github.com/dart-lang/sdk.git
-      ref: 3.5.0
+      ref: 3.13.7
       path: pkg/linter
 
 dev_dependencies:
@@ -22,11 +22,11 @@ dependency_overrides:
   _fe_analyzer_shared:
     git:
       url: https://github.com/dart-lang/sdk.git
-      ref: 3.5.0
+      ref: 3.13.7
       path: pkg/_fe_analyzer_shared
   analyzer:
     git:
       url: https://github.com/dart-lang/sdk.git
-      ref: 3.5.0
+      ref: 3.13.7
       path: pkg/analyzer
 
